@@ -1,5 +1,7 @@
 #include <gol/gol.h>
 
+#include <cstring>
+
 Cell* golCells         = NULL;
 Cell* golPrevCells     = NULL;
 unsigned int golWidth  = 0;
@@ -14,10 +16,14 @@ void golInit(unsigned int width, unsigned int height) {
         free(golCells);
         free(golPrevCells);
     }
-    golCells     = malloc(width * height * sizeof(Cell));
-    golPrevCells = malloc(width * height * sizeof(Cell));
-    golWidth     = width;
-    golHeight    = height;
+
+    const unsigned int len = width * height * sizeof(Cell);
+    golCells               = malloc(len);
+    golPrevCells           = malloc(len);
+    memset(golCells, 0, len);
+    memset(golPrevCells, 0, len);
+    golWidth  = width;
+    golHeight = height;
 
     // TODO - think about how to init cells with text rendering & remove this
     for (unsigned int x = 0; x < width; ++x) {
