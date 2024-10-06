@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['startshutdown_79',['startShutdown',['../a00042.html#acf3581c93d6d05bb03a89b58da98592f',1,'Game']]]
+  ['rendercharacter_80',['renderCharacter',['../a00023.html#a8d6cedb3367504f23f5dec584eec16ce',1,'gol.c']]]
 ];
