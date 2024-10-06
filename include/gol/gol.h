@@ -3,12 +3,21 @@
 
 #include <stdlib.h>
 
-typedef unsigned char Cell;
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 
-void golInit(unsigned int width, unsigned int height);
+    typedef unsigned char Cell;
 
-void golTick();
+    void golInit(unsigned int width, unsigned int height);
 
-Cell* golFetch(unsigned int x, unsigned int y);
+    void golTick();
+
+    Cell* golFetch(unsigned int x, unsigned int y);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

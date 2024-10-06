@@ -5,8 +5,6 @@
 
 class Game : public bl::game::Game {
 public:
-    // TODO - SETUP_TASK - provide common interface here for systems etc
-
 protected:
     /**
      * @brief Called at the beginning of main(). Loads game config and properties

@@ -10,8 +10,6 @@
  */
 class MainState : public bl::engine::State {
 public:
-    static constexpr float DegPerSec = 90.f;
-
     static bl::engine::State::Ptr create() { return Ptr(new MainState()); }
 
     virtual const char* name() const override;
@@ -23,7 +21,8 @@ public:
     virtual void update(bl::engine::Engine&, float dt, float) override;
 
 private:
-    bl::gfx::Triangle triangle;
+    bl::gfx::Rectangle grid;
+    float residual;
 
     MainState()
     : State(bl::engine::StateMask::Running) {}
