@@ -118,9 +118,22 @@ void MainState::observe(const sf::Event& event) {
         if (event.key.code == sf::Keyboard::Space) { paused = !paused; }
         else if (event.key.code == sf::Keyboard::R) { reset(); }
     }
-    if (event.type == sf::Event::MouseWheelScrolled) {
+    else if (event.type == sf::Event::MouseWheelScrolled) {
         if (event.mouseWheelScroll.delta > 0.f) { e->setTimeScale(e->getTimeScale() * 0.9f); }
         else { e->setTimeScale(e->getTimeScale() * 1.1f); }
+    }
+    else if (event.type == sf::Event::MouseButtonPressed) {
+        if (event.mouseButton.button == sf::Mouse::Left) {
+            const glm::vec2 wpos = e->renderer().getObserver().transformToWorldSpace(
+                glm::vec2(event.mouseButton.x, event.mouseButton.y));
+            const glm::vec2 lpos =
+                wpos - (grid.getTransform().getGlobalPosition() - grid.getTransform().getOrigin());
+            const glm::u32vec2 coord = lpos / CellSize;
+            if (coord.x < Width && coord.y < Height) {
+                *golFetchPrev(coord.x, coord.y) = *golFetchPrev(coord.x, coord.y) == 1 ? 0 : 1;
+                copyData();
+            }
+        }
     }
 }
 
