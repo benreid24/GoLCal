@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>GoLCal: src/gol/gol.c File Reference</title>
+<title>GoLCal: include/MainState.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -66,173 +66,33 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_04cf34d5fcc58e4adbf5860d61209303.html">gol</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">gol.c File Reference</div>  </div>
+<div class="title">MainState.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="a00008_source.html">gol/gol.h</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;BLIB/Cameras/2D/Camera2D.hpp&gt;</code><br />
+<code>#include &lt;BLIB/Engine/Engine.hpp&gt;</code><br />
+<code>#include &lt;BLIB/Graphics.hpp&gt;</code><br />
 </div>
 <p><a href="a00017_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:af716069d3890c21ec67cdf38512677cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00008.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#af716069d3890c21ec67cdf38512677cc">golFetch</a> (unsigned int x, unsigned int y)</td></tr>
-<tr class="separator:af716069d3890c21ec67cdf38512677cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab977f0722edf915e490008f4ed8db36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#aab977f0722edf915e490008f4ed8db36">golInit</a> (unsigned int width, unsigned int height)</td></tr>
-<tr class="separator:aab977f0722edf915e490008f4ed8db36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0e97ac1ef7d22d24e5510e67df05a2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#ad0e97ac1ef7d22d24e5510e67df05a2f">golTick</a> ()</td></tr>
-<tr class="separator:ad0e97ac1ef7d22d24e5510e67df05a2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a95f5eb33758d3a83bb6baa02eedc8ec8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00008.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#a95f5eb33758d3a83bb6baa02eedc8ec8">golCells</a> = NULL</td></tr>
-<tr class="separator:a95f5eb33758d3a83bb6baa02eedc8ec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9da88196c74a55ea458d0bd487aef307"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#a9da88196c74a55ea458d0bd487aef307">golWidth</a> = 0</td></tr>
-<tr class="separator:a9da88196c74a55ea458d0bd487aef307"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0877b2ed38ac4e9152873926e06ba012"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#a0877b2ed38ac4e9152873926e06ba012">golHeight</a> = 0</td></tr>
-<tr class="separator:a0877b2ed38ac4e9152873926e06ba012"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00042.html">MainState</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic engine state that provides a spinning triangle.  <a href="a00042.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="af716069d3890c21ec67cdf38512677cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af716069d3890c21ec67cdf38512677cc">&#9670;&nbsp;</a></span>golFetch()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00008.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a>* golFetch </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00017_source.html#l00007">7</a> of file <a class="el" href="a00017_source.html">gol.c</a>.</p>
-
-</div>
-</div>
-<a id="aab977f0722edf915e490008f4ed8db36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab977f0722edf915e490008f4ed8db36">&#9670;&nbsp;</a></span>golInit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void golInit </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>width</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>height</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00017_source.html#l00009">9</a> of file <a class="el" href="a00017_source.html">gol.c</a>.</p>
-
-</div>
-</div>
-<a id="ad0e97ac1ef7d22d24e5510e67df05a2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0e97ac1ef7d22d24e5510e67df05a2f">&#9670;&nbsp;</a></span>golTick()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void golTick </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00017_source.html#l00023">23</a> of file <a class="el" href="a00017_source.html">gol.c</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a95f5eb33758d3a83bb6baa02eedc8ec8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95f5eb33758d3a83bb6baa02eedc8ec8">&#9670;&nbsp;</a></span>golCells</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00008.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a>* golCells = NULL</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00017_source.html#l00003">3</a> of file <a class="el" href="a00017_source.html">gol.c</a>.</p>
-
-</div>
-</div>
-<a id="a0877b2ed38ac4e9152873926e06ba012"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0877b2ed38ac4e9152873926e06ba012">&#9670;&nbsp;</a></span>golHeight</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int golHeight = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00017_source.html#l00005">5</a> of file <a class="el" href="a00017_source.html">gol.c</a>.</p>
-
-</div>
-</div>
-<a id="a9da88196c74a55ea458d0bd487aef307"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9da88196c74a55ea458d0bd487aef307">&#9670;&nbsp;</a></span>golWidth</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int golWidth = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00017_source.html#l00004">4</a> of file <a class="el" href="a00017_source.html">gol.c</a>.</p>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.15-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 6 2024 16:42:00 for GoLCal by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 6 2024 18:04:33 for GoLCal by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.9.1
 </small></address>

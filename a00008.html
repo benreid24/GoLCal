@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>GoLCal: include/gol/gol.h File Reference</title>
+<title>GoLCal: include/DescriptorSet.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -66,129 +66,83 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_0c8c18f1a78e309dcea6668dae9d63c6.html">gol</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
-<div class="title">gol.h File Reference</div>  </div>
+<div class="title">DescriptorSet.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;BLIB/Render.hpp&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00005_source.html">Constants.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00014_source.html">gol/gol.h</a>&gt;</code><br />
 </div>
 <p><a href="a00008_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html">ShaderPayload</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a53efbb3b59542e13799bdf1fd8607c44"><td class="memItemLeft" align="right" valign="top">typedef unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a></td></tr>
-<tr class="separator:a53efbb3b59542e13799bdf1fd8607c44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:aab977f0722edf915e490008f4ed8db36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#aab977f0722edf915e490008f4ed8db36">golInit</a> (unsigned int width, unsigned int height)</td></tr>
-<tr class="separator:aab977f0722edf915e490008f4ed8db36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0e97ac1ef7d22d24e5510e67df05a2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ad0e97ac1ef7d22d24e5510e67df05a2f">golTick</a> ()</td></tr>
-<tr class="separator:ad0e97ac1ef7d22d24e5510e67df05a2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af716069d3890c21ec67cdf38512677cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00008.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#af716069d3890c21ec67cdf38512677cc">golFetch</a> (unsigned int x, unsigned int y)</td></tr>
-<tr class="separator:af716069d3890c21ec67cdf38512677cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e9da50d80b5900a2c15f3a2d2f4b207"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a9e9da50d80b5900a2c15f3a2d2f4b207">Bindings</a> = bl::rc::ds::Bindings&lt; bl::rc::ds::GlobalUniformBuffer&lt; <a class="el" href="a00034.html">ShaderPayload</a> &gt; &gt;</td></tr>
+<tr class="separator:a9e9da50d80b5900a2c15f3a2d2f4b207"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ac3a8e27347ef165ed089c7068dd79c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a7ac3a8e27347ef165ed089c7068dd79c">Factory</a> = bl::rc::ds::GenericDescriptorSetFactory&lt; <a class="el" href="a00008.html#a9e9da50d80b5900a2c15f3a2d2f4b207">Bindings</a>, VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT &gt;</td></tr>
+<tr class="separator:a7ac3a8e27347ef165ed089c7068dd79c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1989ca890401144973378fa397fe2312"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a1989ca890401144973378fa397fe2312">Set</a> = bl::rc::ds::GenericDescriptorSetInstance&lt; <a class="el" href="a00008.html#a9e9da50d80b5900a2c15f3a2d2f4b207">Bindings</a> &gt;</td></tr>
+<tr class="separator:a1989ca890401144973378fa397fe2312"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
-<a id="a53efbb3b59542e13799bdf1fd8607c44"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53efbb3b59542e13799bdf1fd8607c44">&#9670;&nbsp;</a></span>Cell</h2>
+<a id="a9e9da50d80b5900a2c15f3a2d2f4b207"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e9da50d80b5900a2c15f3a2d2f4b207">&#9670;&nbsp;</a></span>Bindings</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef unsigned char <a class="el" href="a00008.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a></td>
+          <td class="memname">using <a class="el" href="a00008.html#a9e9da50d80b5900a2c15f3a2d2f4b207">Bindings</a> =  bl::rc::ds::Bindings&lt;bl::rc::ds::GlobalUniformBuffer&lt;<a class="el" href="a00034.html">ShaderPayload</a>&gt; &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00008_source.html#l00006">6</a> of file <a class="el" href="a00008_source.html">gol.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00008_source.html#l00016">16</a> of file <a class="el" href="a00008_source.html">DescriptorSet.hpp</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="af716069d3890c21ec67cdf38512677cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af716069d3890c21ec67cdf38512677cc">&#9670;&nbsp;</a></span>golFetch()</h2>
+<a id="a7ac3a8e27347ef165ed089c7068dd79c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ac3a8e27347ef165ed089c7068dd79c">&#9670;&nbsp;</a></span>Factory</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00008.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a>* golFetch </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">using <a class="el" href="a00008.html#a7ac3a8e27347ef165ed089c7068dd79c">Factory</a> =  bl::rc::ds::GenericDescriptorSetFactory&lt;<a class="el" href="a00008.html#a9e9da50d80b5900a2c15f3a2d2f4b207">Bindings</a>, VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00017_source.html#l00007">7</a> of file <a class="el" href="a00017_source.html">gol.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00008_source.html#l00017">17</a> of file <a class="el" href="a00008_source.html">DescriptorSet.hpp</a>.</p>
 
 </div>
 </div>
-<a id="aab977f0722edf915e490008f4ed8db36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab977f0722edf915e490008f4ed8db36">&#9670;&nbsp;</a></span>golInit()</h2>
+<a id="a1989ca890401144973378fa397fe2312"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1989ca890401144973378fa397fe2312">&#9670;&nbsp;</a></span>Set</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void golInit </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>width</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>height</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">using <a class="el" href="a00008.html#a1989ca890401144973378fa397fe2312">Set</a> =  bl::rc::ds::GenericDescriptorSetInstance&lt;<a class="el" href="a00008.html#a9e9da50d80b5900a2c15f3a2d2f4b207">Bindings</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00017_source.html#l00009">9</a> of file <a class="el" href="a00017_source.html">gol.c</a>.</p>
-
-</div>
-</div>
-<a id="ad0e97ac1ef7d22d24e5510e67df05a2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0e97ac1ef7d22d24e5510e67df05a2f">&#9670;&nbsp;</a></span>golTick()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void golTick </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00017_source.html#l00023">23</a> of file <a class="el" href="a00017_source.html">gol.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00008_source.html#l00019">19</a> of file <a class="el" href="a00008_source.html">DescriptorSet.hpp</a>.</p>
 
 </div>
 </div>
@@ -196,7 +150,7 @@ Functions</h2></td></tr>
 <!-- HTML footer for doxygen 1.8.15-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 6 2024 16:42:00 for GoLCal by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 6 2024 18:04:33 for GoLCal by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.9.1
 </small></address>

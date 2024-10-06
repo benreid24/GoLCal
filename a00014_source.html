@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>GoLCal: src/Game.cpp Source File</title>
+<title>GoLCal: include/gol/gol.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -66,75 +66,46 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_0c8c18f1a78e309dcea6668dae9d63c6.html">gol</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Game.cpp</div>  </div>
+<div class="title">gol.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00014.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00005.html">Game.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00011.html">MainState.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<a href="a00014.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef GOL_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define GOL_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">// one instance should exist globally</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<a class="code" href="a00027.html">Game</a> game;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;} <span class="comment">// namespace</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="a00027.html#af6a081d2c7e3641ef87a91caa68a52a0">   12</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="a00027.html#af6a081d2c7e3641ef87a91caa68a52a0">Game::performEarlyStartup</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv) {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="comment">// TODO - SETUP_TASK - any other game specific early setup steps</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="a00014.html#a53efbb3b59542e13799bdf1fd8607c44">   11</a></span>&#160;    <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="a00014.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a00014.html#aab977f0722edf915e490008f4ed8db36">golInit</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height);</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="a00027.html#a86d83c3f04f8aa4623fff46a18aa3355">   18</a></span>&#160;bl::engine::Settings <a class="code" href="a00027.html#a86d83c3f04f8aa4623fff46a18aa3355">Game::createStartupParameters</a>() {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">return</span> bl::engine::Settings().fromConfig().withWindowParameters(</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        bl::engine::Settings::WindowParameters()</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            .withVideoMode(sf::VideoMode(1920, 1080, 32))</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            .fromConfig()</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            .withStyle(sf::Style::Close | sf::Style::Titlebar | sf::Style::Resize)</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            .withTitle(<span class="stringliteral">&quot;Game of Life Calendar&quot;</span>)</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            .withLetterBoxOnResize(<span class="keyword">true</span>)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            .withInitialViewSize(sf::Vector2f(1920.f, 1080.f)));</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="a00027.html#a6c6614b2146abf870679addf69b083bd">   29</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="a00027.html#a6c6614b2146abf870679addf69b083bd">Game::completeStartup</a>(bl::engine::Engine&amp; engine) {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">// TODO - SETUP_TASK - register game specific systems</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="a00027.html#adae20f9ab21d9e40980b6ce1c75eb077">   35</a></span>&#160;bl::engine::State::Ptr <a class="code" href="a00027.html#adae20f9ab21d9e40980b6ce1c75eb077">Game::createInitialEngineState</a>() {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">// TODO - SETUP_TASK - create actual initial state</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="a00031.html#a5d063e0ed7cce46b22c83b4908284ea5">MainState::create</a>();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="a00027.html#acf3581c93d6d05bb03a89b58da98592f">   40</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00027.html#acf3581c93d6d05bb03a89b58da98592f">Game::startShutdown</a>() {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">// TODO - SETUP_TASK - any early shutdown tasks</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="a00027.html#a5b5adf5f7c770724828ffb876df7ff24">   44</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00027.html#a5b5adf5f7c770724828ffb876df7ff24">Game::completeShutdown</a>() {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// TODO - SETUP_TASK - any final shutdown tasks</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
-<div class="ttc" id="aa00005_html"><div class="ttname"><a href="a00005.html">Game.hpp</a></div></div>
-<div class="ttc" id="aa00011_html"><div class="ttname"><a href="a00011.html">MainState.hpp</a></div></div>
-<div class="ttc" id="aa00027_html"><div class="ttname"><a href="a00027.html">Game</a></div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00006">Game.hpp:6</a></div></div>
-<div class="ttc" id="aa00027_html_a5b5adf5f7c770724828ffb876df7ff24"><div class="ttname"><a href="a00027.html#a5b5adf5f7c770724828ffb876df7ff24">Game::completeShutdown</a></div><div class="ttdeci">virtual void completeShutdown() override</div><div class="ttdoc">Called at the end of main() after the engine instance is destroyed.</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00044">Game.cpp:44</a></div></div>
-<div class="ttc" id="aa00027_html_a6c6614b2146abf870679addf69b083bd"><div class="ttname"><a href="a00027.html#a6c6614b2146abf870679addf69b083bd">Game::completeStartup</a></div><div class="ttdeci">virtual bool completeStartup(bl::engine::Engine &amp;engine) override</div><div class="ttdoc">Creates game-specific systems, sets up the input mappings, etc.</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00029">Game.cpp:29</a></div></div>
-<div class="ttc" id="aa00027_html_a86d83c3f04f8aa4623fff46a18aa3355"><div class="ttname"><a href="a00027.html#a86d83c3f04f8aa4623fff46a18aa3355">Game::createStartupParameters</a></div><div class="ttdeci">virtual bl::engine::Settings createStartupParameters() override</div><div class="ttdoc">Creates the parameters to launch the engine with.</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00018">Game.cpp:18</a></div></div>
-<div class="ttc" id="aa00027_html_acf3581c93d6d05bb03a89b58da98592f"><div class="ttname"><a href="a00027.html#acf3581c93d6d05bb03a89b58da98592f">Game::startShutdown</a></div><div class="ttdeci">virtual void startShutdown() override</div><div class="ttdoc">Called after the main engine loop while the engine instance exists.</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00040">Game.cpp:40</a></div></div>
-<div class="ttc" id="aa00027_html_adae20f9ab21d9e40980b6ce1c75eb077"><div class="ttname"><a href="a00027.html#adae20f9ab21d9e40980b6ce1c75eb077">Game::createInitialEngineState</a></div><div class="ttdeci">virtual bl::engine::State::Ptr createInitialEngineState() override</div><div class="ttdoc">Creates the engine state to launch the game with.</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00035">Game.cpp:35</a></div></div>
-<div class="ttc" id="aa00027_html_af6a081d2c7e3641ef87a91caa68a52a0"><div class="ttname"><a href="a00027.html#af6a081d2c7e3641ef87a91caa68a52a0">Game::performEarlyStartup</a></div><div class="ttdeci">virtual bool performEarlyStartup(int argc, char **argv) override</div><div class="ttdoc">Called at the beginning of main(). Loads game config and properties.</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00012">Game.cpp:12</a></div></div>
-<div class="ttc" id="aa00031_html_a5d063e0ed7cce46b22c83b4908284ea5"><div class="ttname"><a href="a00031.html#a5d063e0ed7cce46b22c83b4908284ea5">MainState::create</a></div><div class="ttdeci">static bl::engine::State::Ptr create()</div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00015">MainState.hpp:15</a></div></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a00014.html#ad0e97ac1ef7d22d24e5510e67df05a2f">golTick</a>();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="a00014.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a>* <a class="code" href="a00014.html#af716069d3890c21ec67cdf38512677cc">golFetch</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aa00014_html_a53efbb3b59542e13799bdf1fd8607c44"><div class="ttname"><a href="a00014.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a></div><div class="ttdeci">unsigned char Cell</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00011">gol.h:11</a></div></div>
+<div class="ttc" id="aa00014_html_aab977f0722edf915e490008f4ed8db36"><div class="ttname"><a href="a00014.html#aab977f0722edf915e490008f4ed8db36">golInit</a></div><div class="ttdeci">void golInit(unsigned int width, unsigned int height)</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00009">gol.c:9</a></div></div>
+<div class="ttc" id="aa00014_html_ad0e97ac1ef7d22d24e5510e67df05a2f"><div class="ttname"><a href="a00014.html#ad0e97ac1ef7d22d24e5510e67df05a2f">golTick</a></div><div class="ttdeci">void golTick()</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00023">gol.c:23</a></div></div>
+<div class="ttc" id="aa00014_html_af716069d3890c21ec67cdf38512677cc"><div class="ttname"><a href="a00014.html#af716069d3890c21ec67cdf38512677cc">golFetch</a></div><div class="ttdeci">Cell * golFetch(unsigned int x, unsigned int y)</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00007">gol.c:7</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.15-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 6 2024 16:42:00 for GoLCal by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 6 2024 18:04:33 for GoLCal by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.9.1
 </small></address>

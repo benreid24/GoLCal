@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>GoLCal: include/gol/gol.h Source File</title>
+<title>GoLCal: include/DescriptorSet.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -66,37 +66,54 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_0c8c18f1a78e309dcea6668dae9d63c6.html">gol</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">gol.h</div>  </div>
+<div class="title">DescriptorSet.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00008.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef GOL_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define GOL_H</span></div>
+<a href="a00008.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef DESCRIPTORSET_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define DESCRIPTORSET_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="a00008.html#a53efbb3b59542e13799bdf1fd8607c44">    6</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="a00008.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a>;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;BLIB/Render.hpp&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00005.html">Constants.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00014.html">gol/gol.h</a>&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00008.html#aab977f0722edf915e490008f4ed8db36">golInit</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height);</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00008.html#ad0e97ac1ef7d22d24e5510e67df05a2f">golTick</a>();</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<a class="code" href="a00008.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a>* <a class="code" href="a00008.html#af716069d3890c21ec67cdf38512677cc">golFetch</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aa00008_html_a53efbb3b59542e13799bdf1fd8607c44"><div class="ttname"><a href="a00008.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a></div><div class="ttdeci">unsigned char Cell</div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00006">gol.h:6</a></div></div>
-<div class="ttc" id="aa00008_html_aab977f0722edf915e490008f4ed8db36"><div class="ttname"><a href="a00008.html#aab977f0722edf915e490008f4ed8db36">golInit</a></div><div class="ttdeci">void golInit(unsigned int width, unsigned int height)</div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00009">gol.c:9</a></div></div>
-<div class="ttc" id="aa00008_html_ad0e97ac1ef7d22d24e5510e67df05a2f"><div class="ttname"><a href="a00008.html#ad0e97ac1ef7d22d24e5510e67df05a2f">golTick</a></div><div class="ttdeci">void golTick()</div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00023">gol.c:23</a></div></div>
-<div class="ttc" id="aa00008_html_af716069d3890c21ec67cdf38512677cc"><div class="ttname"><a href="a00008.html#af716069d3890c21ec67cdf38512677cc">golFetch</a></div><div class="ttdeci">Cell * golFetch(unsigned int x, unsigned int y)</div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00007">gol.c:7</a></div></div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="a00034.html">    8</a></span>&#160;<span class="keyword">struct </span><a class="code" href="a00034.html">ShaderPayload</a> {</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="a00034.html#a022bb0c2ac2f882186c53d4d302a3698">    9</a></span>&#160;    std::uint32_t <a class="code" href="a00034.html#a022bb0c2ac2f882186c53d4d302a3698">width</a>;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="a00034.html#a5f6e3e7493b5f88585d8bab3eceadf7a">   10</a></span>&#160;    std::uint32_t <a class="code" href="a00034.html#a5f6e3e7493b5f88585d8bab3eceadf7a">height</a>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="a00034.html#a3d6432a9c34a5811a3a2325fc680068b">   11</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="a00034.html#a3d6432a9c34a5811a3a2325fc680068b">cellSize</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="a00034.html#a1b0cd51e63dfeaabe5759ddc3112a6c5">   12</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="a00034.html#a1b0cd51e63dfeaabe5759ddc3112a6c5">padding</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="a00034.html#a538dc2e9dc2cfb955e917683cdd1eb5f">   13</a></span>&#160;    <a class="code" href="a00014.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a> <a class="code" href="a00034.html#a538dc2e9dc2cfb955e917683cdd1eb5f">cells</a>[<a class="code" href="a00005.html#a7d33f7b2fdba55484a077db3047d33ec">Width</a> * <a class="code" href="a00005.html#a33ab5df9c43339c5e74c756cd3421961">Height</a>];</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;};</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="a00008.html#a9e9da50d80b5900a2c15f3a2d2f4b207">   16</a></span>&#160;<span class="keyword">using</span> <a class="code" href="a00008.html#a9e9da50d80b5900a2c15f3a2d2f4b207">Bindings</a> = bl::rc::ds::Bindings&lt;bl::rc::ds::GlobalUniformBuffer&lt;ShaderPayload&gt;&gt;;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="a00008.html#a7ac3a8e27347ef165ed089c7068dd79c">   17</a></span>&#160;<span class="keyword">using</span> <a class="code" href="a00008.html#a7ac3a8e27347ef165ed089c7068dd79c">Factory</a> =</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    bl::rc::ds::GenericDescriptorSetFactory&lt;Bindings, VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT&gt;;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="a00008.html#a1989ca890401144973378fa397fe2312">   19</a></span>&#160;<span class="keyword">using</span> <a class="code" href="a00008.html#a1989ca890401144973378fa397fe2312">Set</a> = bl::rc::ds::GenericDescriptorSetInstance&lt;Bindings&gt;;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aa00005_html"><div class="ttname"><a href="a00005.html">Constants.hpp</a></div></div>
+<div class="ttc" id="aa00005_html_a33ab5df9c43339c5e74c756cd3421961"><div class="ttname"><a href="a00005.html#a33ab5df9c43339c5e74c756cd3421961">Height</a></div><div class="ttdeci">constexpr unsigned int Height</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00015">Constants.hpp:15</a></div></div>
+<div class="ttc" id="aa00005_html_a7d33f7b2fdba55484a077db3047d33ec"><div class="ttname"><a href="a00005.html#a7d33f7b2fdba55484a077db3047d33ec">Width</a></div><div class="ttdeci">constexpr unsigned int Width</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00014">Constants.hpp:14</a></div></div>
+<div class="ttc" id="aa00008_html_a1989ca890401144973378fa397fe2312"><div class="ttname"><a href="a00008.html#a1989ca890401144973378fa397fe2312">Set</a></div><div class="ttdeci">bl::rc::ds::GenericDescriptorSetInstance&lt; Bindings &gt; Set</div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00019">DescriptorSet.hpp:19</a></div></div>
+<div class="ttc" id="aa00008_html_a7ac3a8e27347ef165ed089c7068dd79c"><div class="ttname"><a href="a00008.html#a7ac3a8e27347ef165ed089c7068dd79c">Factory</a></div><div class="ttdeci">bl::rc::ds::GenericDescriptorSetFactory&lt; Bindings, VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT &gt; Factory</div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00017">DescriptorSet.hpp:18</a></div></div>
+<div class="ttc" id="aa00008_html_a9e9da50d80b5900a2c15f3a2d2f4b207"><div class="ttname"><a href="a00008.html#a9e9da50d80b5900a2c15f3a2d2f4b207">Bindings</a></div><div class="ttdeci">bl::rc::ds::Bindings&lt; bl::rc::ds::GlobalUniformBuffer&lt; ShaderPayload &gt; &gt; Bindings</div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00016">DescriptorSet.hpp:16</a></div></div>
+<div class="ttc" id="aa00014_html"><div class="ttname"><a href="a00014.html">gol.h</a></div></div>
+<div class="ttc" id="aa00014_html_a53efbb3b59542e13799bdf1fd8607c44"><div class="ttname"><a href="a00014.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a></div><div class="ttdeci">unsigned char Cell</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00011">gol.h:11</a></div></div>
+<div class="ttc" id="aa00034_html"><div class="ttname"><a href="a00034.html">ShaderPayload</a></div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00008">DescriptorSet.hpp:8</a></div></div>
+<div class="ttc" id="aa00034_html_a022bb0c2ac2f882186c53d4d302a3698"><div class="ttname"><a href="a00034.html#a022bb0c2ac2f882186c53d4d302a3698">ShaderPayload::width</a></div><div class="ttdeci">std::uint32_t width</div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00009">DescriptorSet.hpp:9</a></div></div>
+<div class="ttc" id="aa00034_html_a1b0cd51e63dfeaabe5759ddc3112a6c5"><div class="ttname"><a href="a00034.html#a1b0cd51e63dfeaabe5759ddc3112a6c5">ShaderPayload::padding</a></div><div class="ttdeci">float padding</div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00012">DescriptorSet.hpp:12</a></div></div>
+<div class="ttc" id="aa00034_html_a3d6432a9c34a5811a3a2325fc680068b"><div class="ttname"><a href="a00034.html#a3d6432a9c34a5811a3a2325fc680068b">ShaderPayload::cellSize</a></div><div class="ttdeci">float cellSize</div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00011">DescriptorSet.hpp:11</a></div></div>
+<div class="ttc" id="aa00034_html_a538dc2e9dc2cfb955e917683cdd1eb5f"><div class="ttname"><a href="a00034.html#a538dc2e9dc2cfb955e917683cdd1eb5f">ShaderPayload::cells</a></div><div class="ttdeci">Cell cells[Width *Height]</div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00013">DescriptorSet.hpp:13</a></div></div>
+<div class="ttc" id="aa00034_html_a5f6e3e7493b5f88585d8bab3eceadf7a"><div class="ttname"><a href="a00034.html#a5f6e3e7493b5f88585d8bab3eceadf7a">ShaderPayload::height</a></div><div class="ttdeci">std::uint32_t height</div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00010">DescriptorSet.hpp:10</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.15-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 6 2024 16:42:00 for GoLCal by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 6 2024 18:04:33 for GoLCal by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.9.1
 </small></address>
