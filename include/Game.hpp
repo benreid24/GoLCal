@@ -1,17 +1,12 @@
-#ifndef GAME_GAME_HPP
-#define GAME_GAME_HPP
+#ifndef GAME_HPP
+#define GAME_HPP
 
-#include <Core/Game.hpp>
+#include <BLIB/Game.hpp>
 
-/**
- * @defgroup Game
- * @brief All classes and modules that implement the game itself
- */
+class Game : public bl::game::Game {
+public:
+    // TODO - SETUP_TASK - provide common interface here for systems etc
 
-/// All classes and modules that implement the game itself
-namespace game
-{
-class Game : public core::Game {
 protected:
     /**
      * @brief Called at the beginning of main(). Loads game config and properties
@@ -39,8 +34,16 @@ protected:
      * @brief Creates the engine state to launch the game with
      */
     virtual bl::engine::State::Ptr createInitialEngineState() override;
-};
 
-} // namespace game
+    /**
+     * @brief Called after the main engine loop while the engine instance exists
+     */
+    virtual void startShutdown() override;
+
+    /**
+     * @brief Called at the end of main() after the engine instance is destroyed
+     */
+    virtual void completeShutdown() override;
+};
 
 #endif

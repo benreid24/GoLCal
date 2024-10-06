@@ -8,7 +8,7 @@ if (POLICY CMP0025)
   cmake_policy(SET CMP0025 NEW)
 endif()
 
-project(ProjectName C CXX)
+project(GoLCal C CXX)
 
 # BLIB will inherit these settings as well
 option(STATIC_LINK "On to link statically" On)
@@ -35,24 +35,10 @@ include(configure_blib_target)
 include(create_blib_target)
 include(link_blib_target)
 
-add_library(Core STATIC)
-configure_blib_target(Core)
-link_blib_target(Core)
-
 create_blib_target(
-    TARGET ProjectName
+    TARGET GoLCal
     OUTPUT_DIR "${CMAKE_CURRENT_SOURCE_DIR}"
-    LINK_LIBRARIES Core
 )
-
-create_blib_target(
-    TARGET ProjectNameEditor
-    OUTPUT_DIR "${CMAKE_CURRENT_SOURCE_DIR}"
-    LINK_LIBRARIES Core
-)
-
-add_executable(Bundler)
-configure_blib_target(Bundler)
 
 include_directories(include)
 add_subdirectory(src)

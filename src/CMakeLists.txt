@@ -1,4 +1,6 @@
-add_subdirectory(Bundler)
-add_subdirectory(Core)
-add_subdirectory(Editor)
-add_subdirectory(Game)
+target_sources(GoLCal PUBLIC
+    Game.cpp
+    MainState.cpp
+)
+
+add_subdirectory(gol)

@@ -5,7 +5,7 @@ on:
 name: Build Game Binaries
 
 env:
-  PROJECT_NAME: ProjectName
+  PROJECT_NAME: GoLCal
 
 jobs:
   windows_build:
