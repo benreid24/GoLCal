@@ -30,9 +30,12 @@ private:
     float residual;
     ShaderPayload* payload;
     bool paused;
+    glm::u32vec2 prevClick;
 
     MainState();
-    void reset();
+    void clear();
+    void resetFat();
+    void resetClock();
     void copyData();
     virtual void observe(const sf::Event& event) override;
 };

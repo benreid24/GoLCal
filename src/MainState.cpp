@@ -22,7 +22,8 @@ std::string now() {
 MainState::MainState()
 : State(bl::engine::StateMask::Running)
 , residual(0.f)
-, paused(false) {}
+, paused(false)
+, prevClick(std::numeric_limits<unsigned int>::max(), std::numeric_limits<unsigned int>::max()) {}
 
 const char* MainState::name() const { return "MainState"; }
 
@@ -84,7 +85,7 @@ void MainState::activate(bl::engine::Engine& engine) {
     payload->width    = Width;
     payload->height   = Height;
 
-    reset();
+    resetClock();
 
     bl::event::Dispatcher::subscribe(this);
 }
@@ -94,7 +95,7 @@ void MainState::deactivate(bl::engine::Engine& engine) {
     engine.renderer().getObserver().popScene();
 }
 
-void MainState::update(bl::engine::Engine&, float dt, float) {
+void MainState::update(bl::engine::Engine& engine, float dt, float) {
     if (!paused) {
         residual += dt;
         while (residual >= TickPeriod) {
@@ -103,6 +104,21 @@ void MainState::update(bl::engine::Engine&, float dt, float) {
             copyData();
         }
     }
+
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        const sf::Vector2i mpos = sf::Mouse::getPosition(engine.window().getSfWindow());
+        const glm::vec2 wpos =
+            e->renderer().getObserver().transformToWorldSpace(glm::vec2(mpos.x, mpos.y));
+        const glm::vec2 lpos =
+            wpos - (grid.getTransform().getGlobalPosition() - grid.getTransform().getOrigin());
+        const glm::u32vec2 coord = lpos / CellSize;
+        if (coord != prevClick && coord.x < Width && coord.y < Height) {
+            prevClick                       = coord;
+            *golFetchPrev(coord.x, coord.y) = *golFetchPrev(coord.x, coord.y) == 1 ? 0 : 1;
+            copyData();
+        }
+    }
+    else { prevClick.x = std::numeric_limits<unsigned int>::max(); }
 }
 
 void MainState::copyData() {
@@ -116,28 +132,21 @@ void MainState::copyData() {
 void MainState::observe(const sf::Event& event) {
     if (event.type == sf::Event::KeyPressed) {
         if (event.key.code == sf::Keyboard::Space) { paused = !paused; }
-        else if (event.key.code == sf::Keyboard::R) { reset(); }
+        else if (event.key.code == sf::Keyboard::R) { resetClock(); }
+        else if (event.key.code == sf::Keyboard::F) { resetFat(); }
+        else if (event.key.code == sf::Keyboard::C) { clear(); }
+        else if (event.key.code == sf::Keyboard::T) {
+            golTick();
+            copyData();
+        }
     }
     else if (event.type == sf::Event::MouseWheelScrolled) {
         if (event.mouseWheelScroll.delta > 0.f) { e->setTimeScale(e->getTimeScale() * 0.9f); }
         else { e->setTimeScale(e->getTimeScale() * 1.1f); }
     }
-    else if (event.type == sf::Event::MouseButtonPressed) {
-        if (event.mouseButton.button == sf::Mouse::Left) {
-            const glm::vec2 wpos = e->renderer().getObserver().transformToWorldSpace(
-                glm::vec2(event.mouseButton.x, event.mouseButton.y));
-            const glm::vec2 lpos =
-                wpos - (grid.getTransform().getGlobalPosition() - grid.getTransform().getOrigin());
-            const glm::u32vec2 coord = lpos / CellSize;
-            if (coord.x < Width && coord.y < Height) {
-                *golFetchPrev(coord.x, coord.y) = *golFetchPrev(coord.x, coord.y) == 1 ? 0 : 1;
-                copyData();
-            }
-        }
-    }
 }
 
-void MainState::reset() {
+void MainState::resetFat() {
     golInit(Width, Height);
 
     sf::Font font;
@@ -161,5 +170,16 @@ void MainState::reset() {
         }
     }
 
+    copyData();
+}
+
+void MainState::resetClock() {
+    golInit(Width, Height);
+    golRenderString(now().c_str());
+    copyData();
+}
+
+void MainState::clear() {
+    golInit(Width, Height);
     copyData();
 }

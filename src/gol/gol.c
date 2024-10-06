@@ -171,9 +171,9 @@ void golTick() {
         for (unsigned int y = 0; y < golHeight; ++y) {
             int active_neighbors = 0;
             for (int x_dir = -1; x_dir < 2; ++x_dir) {
-                if (x > 0 && x + x_dir < golWidth) {
+                if ((x + x_dir) >= 0 && x + x_dir < golWidth) {
                     for (int y_dir = -1; y_dir < 2; ++y_dir) {
-                        if (y > 0 && y + y_dir < golHeight) {
+                        if ((y + y_dir) >= 0 && y + y_dir < golHeight) {
                             if (!(x_dir == 0 && y_dir == 0)) {
                                 active_neighbors += *golFetchPrev(x + x_dir, y + y_dir);
                             }
@@ -181,7 +181,8 @@ void golTick() {
                     }
                 }
             }
-            if (active_neighbors == 2 || active_neighbors == 3) { *golFetch(x, y) = 1; }
+            if (active_neighbors == 3) { *golFetch(x, y) = 1; }
+            else if (active_neighbors == 2 && *golFetchPrev(x, y) == 1) { *golFetch(x, y) = 1; }
             else { *golFetch(x, y) = 0; }
         }
     }
