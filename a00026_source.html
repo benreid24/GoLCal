@@ -83,34 +83,88 @@ $(function() {
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{} <span class="comment">// namespace</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="a00042.html#adec4522b11ff2416288acdc8a8d4c833">   10</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="a00042.html#adec4522b11ff2416288acdc8a8d4c833">MainState::name</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;MainState&quot;</span>; }</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="a00046.html#adec4522b11ff2416288acdc8a8d4c833">   10</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="a00046.html#adec4522b11ff2416288acdc8a8d4c833">MainState::name</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;MainState&quot;</span>; }</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="a00042.html#a5c6f7c482b6da2974dda6ec3485c4010">   12</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00042.html#a5c6f7c482b6da2974dda6ec3485c4010">MainState::activate</a>(bl::engine::Engine&amp; engine) {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">auto</span> scene = engine.renderer().getObserver().pushScene&lt;bl::rc::scene::Scene2D&gt;();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    engine.renderer().getObserver().setCamera&lt;bl::cam::Camera2D&gt;(<a class="code" href="a00005.html#a2eeb57150fadf60cc4fff0368a2ecafe">WindowSize</a> * 0.5f, <a class="code" href="a00005.html#a2eeb57150fadf60cc4fff0368a2ecafe">WindowSize</a>);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    engine.renderer().getObserver().setClearColor(bl::sfcol(sf::Color::Cyan));</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="comment">// TODO - get descriptor set from pipeline and set data</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    grid.create(engine, glm::vec2(<a class="code" href="a00005.html#a7d33f7b2fdba55484a077db3047d33ec">Width</a> * <a class="code" href="a00005.html#ad4c5e07e9f5fee97c2ce14aed7167d0f">CellSize</a>, <a class="code" href="a00005.html#a33ab5df9c43339c5e74c756cd3421961">Height</a> * <a class="code" href="a00005.html#ad4c5e07e9f5fee97c2ce14aed7167d0f">CellSize</a>));</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    grid.getTransform().setOrigin(grid.getSize() * 0.5f);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    grid.getTransform().setPosition(<a class="code" href="a00005.html#a2eeb57150fadf60cc4fff0368a2ecafe">WindowSize</a> * 0.5f);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    grid.setFillColor(sf::Color::Red);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    grid.addToSceneWithCustomPipeline(scene, bl::rc::UpdateSpeed::Dynamic, <a class="code" href="a00005.html#a7fe385f7b25946881126b591c0e2c7c7">PipelineId</a>);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="a00046.html#a5c6f7c482b6da2974dda6ec3485c4010">   12</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00046.html#a5c6f7c482b6da2974dda6ec3485c4010">MainState::activate</a>(bl::engine::Engine&amp; engine) {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordflow">if</span> (!engine.renderer().pipelineCache().pipelineExists(<a class="code" href="a00005.html#a7fe385f7b25946881126b591c0e2c7c7">PipelineId</a>)) {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        VkPipelineDepthStencilStateCreateInfo depthStencil{};</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        depthStencil.sType            = VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        depthStencil.depthTestEnable  = VK_FALSE;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        depthStencil.depthWriteEnable = VK_FALSE;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        depthStencil.depthCompareOp   = VK_COMPARE_OP_LESS_OR_EQUAL;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        depthStencil.depthBoundsTestEnable = VK_FALSE;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        depthStencil.minDepthBounds        = 0.0f; <span class="comment">// Optional</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        depthStencil.maxDepthBounds        = 1.0f; <span class="comment">// Optional</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        depthStencil.stencilTestEnable     = VK_FALSE;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        depthStencil.front                 = {}; <span class="comment">// Optional (Stencil)</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        depthStencil.back                  = {}; <span class="comment">// Optional (Stencil)</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="a00042.html#a464c7177de04f1dfd6aad90d87c840e0">   26</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00042.html#a464c7177de04f1dfd6aad90d87c840e0">MainState::deactivate</a>(bl::engine::Engine&amp; engine) {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    engine.renderer().getObserver().popScene();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="a00042.html#a91d3118862f7282696d0afeba10066c4">   30</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00042.html#a91d3118862f7282696d0afeba10066c4">MainState::update</a>(bl::engine::Engine&amp;, <span class="keywordtype">float</span> dt, <span class="keywordtype">float</span>) {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    residual += dt;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">while</span> (residual &gt;= <a class="code" href="a00005.html#a54623d5f48d624a88ad76c805182405a">TickPeriod</a>) {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        residual -= <a class="code" href="a00005.html#a54623d5f48d624a88ad76c805182405a">TickPeriod</a>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="a00014.html#ad0e97ac1ef7d22d24e5510e67df05a2f">golTick</a>();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="comment">// TODO - fetch state and update descriptor</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        VkPipelineRasterizationStateCreateInfo rasterizer{};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        rasterizer.sType            = VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        rasterizer.depthClampEnable = VK_FALSE;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        rasterizer.rasterizerDiscardEnable = VK_FALSE;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        rasterizer.polygonMode             = VK_POLYGON_MODE_FILL;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        rasterizer.lineWidth               = 1.0f;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        rasterizer.cullMode                = VK_CULL_MODE_NONE;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        rasterizer.frontFace               = VK_FRONT_FACE_COUNTER_CLOCKWISE;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        rasterizer.depthBiasEnable         = VK_FALSE;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        rasterizer.depthBiasConstantFactor = 0.0f; <span class="comment">// Optional</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        rasterizer.depthBiasClamp          = 0.0f; <span class="comment">// Optional</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        rasterizer.depthBiasSlopeFactor    = 0.0f; <span class="comment">// Optional</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        engine.renderer().pipelineCache().createPipline(</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <a class="code" href="a00005.html#a7fe385f7b25946881126b591c0e2c7c7">PipelineId</a>,</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            bl::rc::vk::PipelineParameters()</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                .withShaders(<span class="stringliteral">&quot;Resources/Shaders/vertex.vert.spv&quot;</span>,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                             <span class="stringliteral">&quot;Resources/Shaders/fragment.frag.spv&quot;</span>)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                .withPrimitiveType(VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                .withRasterizer(rasterizer)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                .withDepthStencilState(&amp;depthStencil)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                .addDescriptorSet&lt;bl::rc::ds::Scene2DFactory&gt;()</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                .addDescriptorSet&lt;bl::rc::ds::Object2DFactory&gt;()</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                .addDescriptorSet&lt;Factory&gt;()</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                .build());</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">auto</span> scene = engine.renderer().getObserver().pushScene&lt;bl::rc::scene::Scene2D&gt;();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    engine.renderer().getObserver().setCamera&lt;bl::cam::Camera2D&gt;(<a class="code" href="a00005.html#a2eeb57150fadf60cc4fff0368a2ecafe">WindowSize</a> * 0.5f, <a class="code" href="a00005.html#a2eeb57150fadf60cc4fff0368a2ecafe">WindowSize</a>);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    engine.renderer().getObserver().setClearColor(bl::sfcol(sf::Color::Cyan));</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    grid.create(engine, glm::vec2(<a class="code" href="a00005.html#a7d33f7b2fdba55484a077db3047d33ec">Width</a> * <a class="code" href="a00005.html#ad4c5e07e9f5fee97c2ce14aed7167d0f">CellSize</a>, <a class="code" href="a00005.html#a33ab5df9c43339c5e74c756cd3421961">Height</a> * <a class="code" href="a00005.html#ad4c5e07e9f5fee97c2ce14aed7167d0f">CellSize</a>));</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    grid.getTransform().setOrigin(grid.getSize() * 0.5f);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    grid.getTransform().setPosition(<a class="code" href="a00005.html#a2eeb57150fadf60cc4fff0368a2ecafe">WindowSize</a> * 0.5f);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    grid.setFillColor(sf::Color::Red);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    grid.addToSceneWithCustomPipeline(scene, bl::rc::UpdateSpeed::Dynamic, <a class="code" href="a00005.html#a7fe385f7b25946881126b591c0e2c7c7">PipelineId</a>);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    payload           = &amp;scene-&gt;getDescriptorSet&lt;<a class="code" href="a00008.html#a1989ca890401144973378fa397fe2312">Set</a>&gt;().getBindingPayload&lt;ShaderPayload&gt;();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    payload-&gt;<a class="code" href="a00038.html#acf05ff725fdb584e07a16ca3f4fd025b">gridSize</a> = grid.getSize();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    payload-&gt;<a class="code" href="a00038.html#a022bb0c2ac2f882186c53d4d302a3698">width</a>    = <a class="code" href="a00005.html#a7d33f7b2fdba55484a077db3047d33ec">Width</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    payload-&gt;<a class="code" href="a00038.html#a5f6e3e7493b5f88585d8bab3eceadf7a">height</a>   = <a class="code" href="a00005.html#a33ab5df9c43339c5e74c756cd3421961">Height</a>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="a00014.html#aab977f0722edf915e490008f4ed8db36">golInit</a>(<a class="code" href="a00005.html#a7d33f7b2fdba55484a077db3047d33ec">Width</a>, <a class="code" href="a00005.html#a33ab5df9c43339c5e74c756cd3421961">Height</a>);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    copyData();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="a00046.html#a464c7177de04f1dfd6aad90d87c840e0">   72</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00046.html#a464c7177de04f1dfd6aad90d87c840e0">MainState::deactivate</a>(bl::engine::Engine&amp; engine) {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    engine.renderer().getObserver().popScene();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="a00046.html#a91d3118862f7282696d0afeba10066c4">   76</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00046.html#a91d3118862f7282696d0afeba10066c4">MainState::update</a>(bl::engine::Engine&amp;, <span class="keywordtype">float</span> dt, <span class="keywordtype">float</span>) {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    residual += dt;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">while</span> (residual &gt;= <a class="code" href="a00005.html#a54623d5f48d624a88ad76c805182405a">TickPeriod</a>) {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        residual -= <a class="code" href="a00005.html#a54623d5f48d624a88ad76c805182405a">TickPeriod</a>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <a class="code" href="a00014.html#ad0e97ac1ef7d22d24e5510e67df05a2f">golTick</a>();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        copyData();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keywordtype">void</span> MainState::copyData() {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x = 0; x &lt; <a class="code" href="a00005.html#a7d33f7b2fdba55484a077db3047d33ec">Width</a>; ++x) {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y = 0; y &lt; <a class="code" href="a00005.html#a33ab5df9c43339c5e74c756cd3421961">Height</a>; ++y) {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            payload-&gt;<a class="code" href="a00038.html#a33c7aeca175c126b3f156352bde214ee">cells</a>[y * <a class="code" href="a00005.html#a7d33f7b2fdba55484a077db3047d33ec">Width</a> + x] = *<a class="code" href="a00014.html#a2c182d2dd8356e3fc151e7d6e89365b9">golFetchPrev</a>(x, y);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
 <div class="ttc" id="aa00005_html"><div class="ttname"><a href="a00005.html">Constants.hpp</a></div></div>
 <div class="ttc" id="aa00005_html_a2eeb57150fadf60cc4fff0368a2ecafe"><div class="ttname"><a href="a00005.html#a2eeb57150fadf60cc4fff0368a2ecafe">WindowSize</a></div><div class="ttdeci">constexpr glm::vec2 WindowSize(WindowWidth, WindowHeight)</div></div>
 <div class="ttc" id="aa00005_html_a33ab5df9c43339c5e74c756cd3421961"><div class="ttname"><a href="a00005.html#a33ab5df9c43339c5e74c756cd3421961">Height</a></div><div class="ttdeci">constexpr unsigned int Height</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00015">Constants.hpp:15</a></div></div>
@@ -119,18 +173,25 @@ $(function() {
 <div class="ttc" id="aa00005_html_a7fe385f7b25946881126b591c0e2c7c7"><div class="ttname"><a href="a00005.html#a7fe385f7b25946881126b591c0e2c7c7">PipelineId</a></div><div class="ttdeci">constexpr std::uint32_t PipelineId</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00004">Constants.hpp:4</a></div></div>
 <div class="ttc" id="aa00005_html_ad4c5e07e9f5fee97c2ce14aed7167d0f"><div class="ttname"><a href="a00005.html#ad4c5e07e9f5fee97c2ce14aed7167d0f">CellSize</a></div><div class="ttdeci">constexpr float CellSize</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00012">Constants.hpp:12</a></div></div>
 <div class="ttc" id="aa00008_html"><div class="ttname"><a href="a00008.html">DescriptorSet.hpp</a></div></div>
+<div class="ttc" id="aa00008_html_a1989ca890401144973378fa397fe2312"><div class="ttname"><a href="a00008.html#a1989ca890401144973378fa397fe2312">Set</a></div><div class="ttdeci">bl::rc::ds::GenericDescriptorSetInstance&lt; Bindings &gt; Set</div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00029">DescriptorSet.hpp:29</a></div></div>
 <div class="ttc" id="aa00014_html"><div class="ttname"><a href="a00014.html">gol.h</a></div></div>
+<div class="ttc" id="aa00014_html_a2c182d2dd8356e3fc151e7d6e89365b9"><div class="ttname"><a href="a00014.html#a2c182d2dd8356e3fc151e7d6e89365b9">golFetchPrev</a></div><div class="ttdeci">Cell * golFetchPrev(unsigned int x, unsigned int y)</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00012">gol.c:12</a></div></div>
+<div class="ttc" id="aa00014_html_aab977f0722edf915e490008f4ed8db36"><div class="ttname"><a href="a00014.html#aab977f0722edf915e490008f4ed8db36">golInit</a></div><div class="ttdeci">void golInit(unsigned int width, unsigned int height)</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00014">gol.c:14</a></div></div>
 <div class="ttc" id="aa00014_html_ad0e97ac1ef7d22d24e5510e67df05a2f"><div class="ttname"><a href="a00014.html#ad0e97ac1ef7d22d24e5510e67df05a2f">golTick</a></div><div class="ttdeci">void golTick()</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00036">gol.c:36</a></div></div>
 <div class="ttc" id="aa00017_html"><div class="ttname"><a href="a00017.html">MainState.hpp</a></div></div>
-<div class="ttc" id="aa00042_html_a464c7177de04f1dfd6aad90d87c840e0"><div class="ttname"><a href="a00042.html#a464c7177de04f1dfd6aad90d87c840e0">MainState::deactivate</a></div><div class="ttdeci">virtual void deactivate(bl::engine::Engine &amp;engine) override</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00026">MainState.cpp:26</a></div></div>
-<div class="ttc" id="aa00042_html_a5c6f7c482b6da2974dda6ec3485c4010"><div class="ttname"><a href="a00042.html#a5c6f7c482b6da2974dda6ec3485c4010">MainState::activate</a></div><div class="ttdeci">virtual void activate(bl::engine::Engine &amp;engine) override</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00012">MainState.cpp:12</a></div></div>
-<div class="ttc" id="aa00042_html_a91d3118862f7282696d0afeba10066c4"><div class="ttname"><a href="a00042.html#a91d3118862f7282696d0afeba10066c4">MainState::update</a></div><div class="ttdeci">virtual void update(bl::engine::Engine &amp;, float dt, float) override</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00030">MainState.cpp:30</a></div></div>
-<div class="ttc" id="aa00042_html_adec4522b11ff2416288acdc8a8d4c833"><div class="ttname"><a href="a00042.html#adec4522b11ff2416288acdc8a8d4c833">MainState::name</a></div><div class="ttdeci">virtual const char * name() const override</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00010">MainState.cpp:10</a></div></div>
+<div class="ttc" id="aa00038_html_a022bb0c2ac2f882186c53d4d302a3698"><div class="ttname"><a href="a00038.html#a022bb0c2ac2f882186c53d4d302a3698">ShaderPayload::width</a></div><div class="ttdeci">std::uint32_t width</div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00020">DescriptorSet.hpp:20</a></div></div>
+<div class="ttc" id="aa00038_html_a33c7aeca175c126b3f156352bde214ee"><div class="ttname"><a href="a00038.html#a33c7aeca175c126b3f156352bde214ee">ShaderPayload::cells</a></div><div class="ttdeci">ShaderCell cells[Width *Height]</div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00023">DescriptorSet.hpp:23</a></div></div>
+<div class="ttc" id="aa00038_html_a5f6e3e7493b5f88585d8bab3eceadf7a"><div class="ttname"><a href="a00038.html#a5f6e3e7493b5f88585d8bab3eceadf7a">ShaderPayload::height</a></div><div class="ttdeci">std::uint32_t height</div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00021">DescriptorSet.hpp:21</a></div></div>
+<div class="ttc" id="aa00038_html_acf05ff725fdb584e07a16ca3f4fd025b"><div class="ttname"><a href="a00038.html#acf05ff725fdb584e07a16ca3f4fd025b">ShaderPayload::gridSize</a></div><div class="ttdeci">glm::vec2 gridSize</div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00022">DescriptorSet.hpp:22</a></div></div>
+<div class="ttc" id="aa00046_html_a464c7177de04f1dfd6aad90d87c840e0"><div class="ttname"><a href="a00046.html#a464c7177de04f1dfd6aad90d87c840e0">MainState::deactivate</a></div><div class="ttdeci">virtual void deactivate(bl::engine::Engine &amp;engine) override</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00072">MainState.cpp:72</a></div></div>
+<div class="ttc" id="aa00046_html_a5c6f7c482b6da2974dda6ec3485c4010"><div class="ttname"><a href="a00046.html#a5c6f7c482b6da2974dda6ec3485c4010">MainState::activate</a></div><div class="ttdeci">virtual void activate(bl::engine::Engine &amp;engine) override</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00012">MainState.cpp:12</a></div></div>
+<div class="ttc" id="aa00046_html_a91d3118862f7282696d0afeba10066c4"><div class="ttname"><a href="a00046.html#a91d3118862f7282696d0afeba10066c4">MainState::update</a></div><div class="ttdeci">virtual void update(bl::engine::Engine &amp;, float dt, float) override</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00076">MainState.cpp:76</a></div></div>
+<div class="ttc" id="aa00046_html_adec4522b11ff2416288acdc8a8d4c833"><div class="ttname"><a href="a00046.html#adec4522b11ff2416288acdc8a8d4c833">MainState::name</a></div><div class="ttdeci">virtual const char * name() const override</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00010">MainState.cpp:10</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.15-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 6 2024 18:27:39 for GoLCal by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 6 2024 19:38:14 for GoLCal by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.9.1
 </small></address>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['startshutdown_74',['startShutdown',['../a00038.html#acf3581c93d6d05bb03a89b58da98592f',1,'Game']]]
+  ['performearlystartup_78',['performEarlyStartup',['../a00042.html#af6a081d2c7e3641ef87a91caa68a52a0',1,'Game']]]
 ];

@@ -76,7 +76,7 @@ $(function() {
 <div class="contents">
 <a href="a00023.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00014.html">gol/gol.h</a>&gt;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;cstring&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="a00023.html#a95f5eb33758d3a83bb6baa02eedc8ec8">    5</a></span>&#160;<a class="code" href="a00014.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a>* <a class="code" href="a00023.html#a95f5eb33758d3a83bb6baa02eedc8ec8">golCells</a>         = NULL;</div>
 <div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="a00023.html#a24bbd656538ac4a9efb6b9aa98789438">    6</a></span>&#160;<a class="code" href="a00014.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a>* <a class="code" href="a00023.html#a24bbd656538ac4a9efb6b9aa98789438">golPrevCells</a>     = NULL;</div>
@@ -85,7 +85,7 @@ $(function() {
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="a00014.html#af716069d3890c21ec67cdf38512677cc">   10</a></span>&#160;<a class="code" href="a00014.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a>* <a class="code" href="a00023.html#af716069d3890c21ec67cdf38512677cc">golFetch</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y) { <span class="keywordflow">return</span> &amp;<a class="code" href="a00023.html#a95f5eb33758d3a83bb6baa02eedc8ec8">golCells</a>[y * <a class="code" href="a00023.html#a9da88196c74a55ea458d0bd487aef307">golWidth</a> + x]; }</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="a00023.html#a2c182d2dd8356e3fc151e7d6e89365b9">   12</a></span>&#160;<a class="code" href="a00014.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a>* <a class="code" href="a00023.html#a2c182d2dd8356e3fc151e7d6e89365b9">golFetchPrev</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y) { <span class="keywordflow">return</span> &amp;<a class="code" href="a00023.html#a24bbd656538ac4a9efb6b9aa98789438">golPrevCells</a>[y * <a class="code" href="a00023.html#a9da88196c74a55ea458d0bd487aef307">golWidth</a> + x]; }</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="a00014.html#a2c182d2dd8356e3fc151e7d6e89365b9">   12</a></span>&#160;<a class="code" href="a00014.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a>* <a class="code" href="a00023.html#a2c182d2dd8356e3fc151e7d6e89365b9">golFetchPrev</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y) { <span class="keywordflow">return</span> &amp;<a class="code" href="a00023.html#a24bbd656538ac4a9efb6b9aa98789438">golPrevCells</a>[y * <a class="code" href="a00023.html#a9da88196c74a55ea458d0bd487aef307">golWidth</a> + x]; }</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="a00014.html#aab977f0722edf915e490008f4ed8db36">   14</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00023.html#aab977f0722edf915e490008f4ed8db36">golInit</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height) {</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="a00023.html#a95f5eb33758d3a83bb6baa02eedc8ec8">golCells</a>) {</div>
@@ -104,7 +104,7 @@ $(function() {
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">// TODO - think about how to init cells with text rendering &amp; remove this</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x = 0; x &lt; width; ++x) {</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y = 0; y &lt; height; ++y) {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordflow">if</span> ((x % 2) != (y % 2)) { *<a class="code" href="a00023.html#af716069d3890c21ec67cdf38512677cc">golFetch</a>(x, y) = 1; }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordflow">if</span> ((x % 2) == (y % 2)) { *<a class="code" href="a00023.html#a2c182d2dd8356e3fc151e7d6e89365b9">golFetchPrev</a>(x, y) = 1; }</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        }</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
@@ -131,7 +131,7 @@ $(function() {
 <!-- HTML footer for doxygen 1.8.15-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 6 2024 18:27:39 for GoLCal by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 6 2024 19:38:14 for GoLCal by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.9.1
 </small></address>

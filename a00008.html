@@ -79,21 +79,24 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &lt;BLIB/Render.hpp&gt;</code><br />
 <code>#include &lt;<a class="el" href="a00005_source.html">Constants.hpp</a>&gt;</code><br />
+<code>#include &lt;glm/glm.hpp&gt;</code><br />
 <code>#include &lt;<a class="el" href="a00014_source.html">gol/gol.h</a>&gt;</code><br />
 </div>
 <p><a href="a00008_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html">ShaderPayload</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html">ShaderCell</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html">ShaderPayload</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a9e9da50d80b5900a2c15f3a2d2f4b207"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a9e9da50d80b5900a2c15f3a2d2f4b207">Bindings</a> = bl::rc::ds::Bindings&lt; bl::rc::ds::GlobalUniformBuffer&lt; <a class="el" href="a00034.html">ShaderPayload</a> &gt; &gt;</td></tr>
+<tr class="memitem:a9e9da50d80b5900a2c15f3a2d2f4b207"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a9e9da50d80b5900a2c15f3a2d2f4b207">Bindings</a> = bl::rc::ds::Bindings&lt; bl::rc::ds::GlobalUniformBuffer&lt; <a class="el" href="a00038.html">ShaderPayload</a> &gt; &gt;</td></tr>
 <tr class="separator:a9e9da50d80b5900a2c15f3a2d2f4b207"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ac3a8e27347ef165ed089c7068dd79c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a7ac3a8e27347ef165ed089c7068dd79c">Factory</a> = bl::rc::ds::GenericDescriptorSetFactory&lt; <a class="el" href="a00008.html#a9e9da50d80b5900a2c15f3a2d2f4b207">Bindings</a>, VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT &gt;</td></tr>
-<tr class="separator:a7ac3a8e27347ef165ed089c7068dd79c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad48fdcd465ced2475e999e7be6289ba9"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ad48fdcd465ced2475e999e7be6289ba9">Factory</a> = bl::rc::ds::GenericDescriptorSetFactory&lt; <a class="el" href="a00008.html#a9e9da50d80b5900a2c15f3a2d2f4b207">Bindings</a>, VK_SHADER_STAGE_VERTEX_BIT|VK_SHADER_STAGE_FRAGMENT_BIT &gt;</td></tr>
+<tr class="separator:ad48fdcd465ced2475e999e7be6289ba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1989ca890401144973378fa397fe2312"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a1989ca890401144973378fa397fe2312">Set</a> = bl::rc::ds::GenericDescriptorSetInstance&lt; <a class="el" href="a00008.html#a9e9da50d80b5900a2c15f3a2d2f4b207">Bindings</a> &gt;</td></tr>
 <tr class="separator:a1989ca890401144973378fa397fe2312"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -105,28 +108,28 @@ Typedefs</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="a00008.html#a9e9da50d80b5900a2c15f3a2d2f4b207">Bindings</a> =  bl::rc::ds::Bindings&lt;bl::rc::ds::GlobalUniformBuffer&lt;<a class="el" href="a00034.html">ShaderPayload</a>&gt; &gt;</td>
+          <td class="memname">using <a class="el" href="a00008.html#a9e9da50d80b5900a2c15f3a2d2f4b207">Bindings</a> =  bl::rc::ds::Bindings&lt;bl::rc::ds::GlobalUniformBuffer&lt;<a class="el" href="a00038.html">ShaderPayload</a>&gt; &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00008_source.html#l00016">16</a> of file <a class="el" href="a00008_source.html">DescriptorSet.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00008_source.html#l00026">26</a> of file <a class="el" href="a00008_source.html">DescriptorSet.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a7ac3a8e27347ef165ed089c7068dd79c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ac3a8e27347ef165ed089c7068dd79c">&#9670;&nbsp;</a></span>Factory</h2>
+<a id="ad48fdcd465ced2475e999e7be6289ba9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad48fdcd465ced2475e999e7be6289ba9">&#9670;&nbsp;</a></span>Factory</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="a00008.html#a7ac3a8e27347ef165ed089c7068dd79c">Factory</a> =  bl::rc::ds::GenericDescriptorSetFactory&lt;<a class="el" href="a00008.html#a9e9da50d80b5900a2c15f3a2d2f4b207">Bindings</a>, VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT&gt;</td>
+          <td class="memname">using <a class="el" href="a00008.html#ad48fdcd465ced2475e999e7be6289ba9">Factory</a> =  bl::rc::ds::GenericDescriptorSetFactory&lt;<a class="el" href="a00008.html#a9e9da50d80b5900a2c15f3a2d2f4b207">Bindings</a>, VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00008_source.html#l00017">17</a> of file <a class="el" href="a00008_source.html">DescriptorSet.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00008_source.html#l00027">27</a> of file <a class="el" href="a00008_source.html">DescriptorSet.hpp</a>.</p>
 
 </div>
 </div>
@@ -142,7 +145,7 @@ Typedefs</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00008_source.html#l00019">19</a> of file <a class="el" href="a00008_source.html">DescriptorSet.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00008_source.html#l00029">29</a> of file <a class="el" href="a00008_source.html">DescriptorSet.hpp</a>.</p>
 
 </div>
 </div>
@@ -150,7 +153,7 @@ Typedefs</h2></td></tr>
 <!-- HTML footer for doxygen 1.8.15-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 6 2024 18:27:39 for GoLCal by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 6 2024 19:38:14 for GoLCal by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.9.1
 </small></address>
