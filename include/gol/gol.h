@@ -14,6 +14,8 @@ extern "C"
 
     void golTick();
 
+    void golRenderString(const char* message);
+
     Cell* golFetch(unsigned int x, unsigned int y);
 
     Cell* golFetchPrev(unsigned int x, unsigned int y);
