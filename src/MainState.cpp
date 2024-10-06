@@ -166,7 +166,21 @@ void MainState::resetFat() {
     sf::Image img = rt.getTexture().copyToImage();
     for (unsigned int x = 0; x < Width; ++x) {
         for (unsigned int y = 0; y < Height; ++y) {
-            if (img.getPixel(x, y).a > 0) { *golFetchPrev(x, Height - y - 1) = 1; }
+            if (img.getPixel(x, y).a > 0) {
+                unsigned int i = 0;
+                for (unsigned int j = 0; j < text.getString().getSize(); ++j) {
+                    const auto cpos = text.findCharacterPos(j);
+                    auto glyph = font.getGlyph(text.getString()[j], text.getCharacterSize(), false);
+                    glyph.bounds.left = cpos.x;
+                    glyph.bounds.top  = cpos.y;
+                    if (glyph.bounds.contains(x, y)) {
+                        i = j;
+                        break;
+                    }
+                }
+
+                *golFetchPrev(x, Height - y - 1) = (i % 3) + 1;
+            }
         }
     }
 

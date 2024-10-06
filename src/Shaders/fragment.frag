@@ -30,10 +30,20 @@ void main() {
     if (isLine) {
         outColor = vec4(1, 1, 1, 1);
     }
-    else if (data.cells[cellY * data.width + cellX] == 1) {
-        outColor = fragColor;
-    }
     else {
-        outColor = vec4(0);
+        switch (data.cells[cellY * data.width + cellX]) {
+        case 0:
+            outColor = vec4(0);
+            break;
+        case 1:
+            outColor = vec4(66.0 / 255.0, 135.0 / 255.0, 245.0 / 255.0, 1);
+            break;
+        case 2:
+            outColor = vec4(41.0 / 255.0, 230.0 / 255.0, 66.0 / 255.0, 1);
+            break;
+        case 3:
+            outColor = vec4(214.0 / 255.0, 36.0 / 255.0, 36 / 255.0, 1);
+            break;
+        }
     }
 }

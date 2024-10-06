@@ -12,127 +12,127 @@ Cell* golFetch(unsigned int x, unsigned int y) { return &golCells[y * golWidth +
 
 Cell* golFetchPrev(unsigned int x, unsigned int y) { return &golPrevCells[y * golWidth + x]; }
 
-void renderCharacter(unsigned int x, unsigned int y, char c) {
+void renderCharacter(unsigned int x, unsigned int y, char c, unsigned int species) {
     switch (c) {
     case '0':
-        *golFetchPrev(x, y)         = 1;
-        *golFetchPrev(x + 1, y)     = 1;
-        *golFetchPrev(x + 2, y)     = 1;
-        *golFetchPrev(x, y + 1)     = 1;
-        *golFetchPrev(x + 2, y + 1) = 1;
-        *golFetchPrev(x, y + 2)     = 1;
-        *golFetchPrev(x + 2, y + 2) = 1;
-        *golFetchPrev(x, y + 3)     = 1;
-        *golFetchPrev(x + 2, y + 3) = 1;
-        *golFetchPrev(x, y + 4)     = 1;
-        *golFetchPrev(x + 1, y + 4) = 1;
-        *golFetchPrev(x + 2, y + 4) = 1;
+        *golFetchPrev(x, y)         = species;
+        *golFetchPrev(x + 1, y)     = species;
+        *golFetchPrev(x + 2, y)     = species;
+        *golFetchPrev(x, y + 1)     = species;
+        *golFetchPrev(x + 2, y + 1) = species;
+        *golFetchPrev(x, y + 2)     = species;
+        *golFetchPrev(x + 2, y + 2) = species;
+        *golFetchPrev(x, y + 3)     = species;
+        *golFetchPrev(x + 2, y + 3) = species;
+        *golFetchPrev(x, y + 4)     = species;
+        *golFetchPrev(x + 1, y + 4) = species;
+        *golFetchPrev(x + 2, y + 4) = species;
         break;
     case '1':
-        *golFetchPrev(x + 1, y)     = 1;
-        *golFetchPrev(x + 1, y + 1) = 1;
-        *golFetchPrev(x + 1, y + 2) = 1;
-        *golFetchPrev(x + 1, y + 3) = 1;
-        *golFetchPrev(x + 1, y + 4) = 1;
+        *golFetchPrev(x + 1, y)     = species;
+        *golFetchPrev(x + 1, y + 1) = species;
+        *golFetchPrev(x + 1, y + 2) = species;
+        *golFetchPrev(x + 1, y + 3) = species;
+        *golFetchPrev(x + 1, y + 4) = species;
         break;
     case '2':
-        *golFetchPrev(x, y)         = 1;
-        *golFetchPrev(x + 1, y)     = 1;
-        *golFetchPrev(x + 2, y)     = 1;
-        *golFetchPrev(x + 2, y + 1) = 1;
-        *golFetchPrev(x, y + 2)     = 1;
-        *golFetchPrev(x + 1, y + 2) = 1;
-        *golFetchPrev(x + 2, y + 2) = 1;
-        *golFetchPrev(x, y + 3)     = 1;
-        *golFetchPrev(x, y + 4)     = 1;
-        *golFetchPrev(x + 1, y + 4) = 1;
-        *golFetchPrev(x + 2, y + 4) = 1;
+        *golFetchPrev(x, y)         = species;
+        *golFetchPrev(x + 1, y)     = species;
+        *golFetchPrev(x + 2, y)     = species;
+        *golFetchPrev(x + 2, y + 1) = species;
+        *golFetchPrev(x, y + 2)     = species;
+        *golFetchPrev(x + 1, y + 2) = species;
+        *golFetchPrev(x + 2, y + 2) = species;
+        *golFetchPrev(x, y + 3)     = species;
+        *golFetchPrev(x, y + 4)     = species;
+        *golFetchPrev(x + 1, y + 4) = species;
+        *golFetchPrev(x + 2, y + 4) = species;
         break;
     case '3':
-        *golFetchPrev(x, y)         = 1;
-        *golFetchPrev(x + 1, y)     = 1;
-        *golFetchPrev(x + 2, y)     = 1;
-        *golFetchPrev(x + 2, y + 1) = 1;
-        *golFetchPrev(x + 1, y + 2) = 1;
-        *golFetchPrev(x + 2, y + 2) = 1;
-        *golFetchPrev(x + 2, y + 3) = 1;
-        *golFetchPrev(x, y + 4)     = 1;
-        *golFetchPrev(x + 1, y + 4) = 1;
-        *golFetchPrev(x + 2, y + 4) = 1;
+        *golFetchPrev(x, y)         = species;
+        *golFetchPrev(x + 1, y)     = species;
+        *golFetchPrev(x + 2, y)     = species;
+        *golFetchPrev(x + 2, y + 1) = species;
+        *golFetchPrev(x + 1, y + 2) = species;
+        *golFetchPrev(x + 2, y + 2) = species;
+        *golFetchPrev(x + 2, y + 3) = species;
+        *golFetchPrev(x, y + 4)     = species;
+        *golFetchPrev(x + 1, y + 4) = species;
+        *golFetchPrev(x + 2, y + 4) = species;
         break;
     case '4':
-        *golFetchPrev(x, y)         = 1;
-        *golFetchPrev(x + 2, y)     = 1;
-        *golFetchPrev(x, y + 1)     = 1;
-        *golFetchPrev(x + 2, y + 1) = 1;
-        *golFetchPrev(x, y + 2)     = 1;
-        *golFetchPrev(x + 1, y + 2) = 1;
-        *golFetchPrev(x + 2, y + 2) = 1;
-        *golFetchPrev(x + 2, y + 3) = 1;
-        *golFetchPrev(x + 2, y + 4) = 1;
+        *golFetchPrev(x, y)         = species;
+        *golFetchPrev(x + 2, y)     = species;
+        *golFetchPrev(x, y + 1)     = species;
+        *golFetchPrev(x + 2, y + 1) = species;
+        *golFetchPrev(x, y + 2)     = species;
+        *golFetchPrev(x + 1, y + 2) = species;
+        *golFetchPrev(x + 2, y + 2) = species;
+        *golFetchPrev(x + 2, y + 3) = species;
+        *golFetchPrev(x + 2, y + 4) = species;
         break;
     case '5':
-        *golFetchPrev(x, y)         = 1;
-        *golFetchPrev(x + 1, y)     = 1;
-        *golFetchPrev(x + 2, y)     = 1;
-        *golFetchPrev(x, y + 1)     = 1;
-        *golFetchPrev(x, y + 2)     = 1;
-        *golFetchPrev(x + 1, y + 2) = 1;
-        *golFetchPrev(x + 2, y + 2) = 1;
-        *golFetchPrev(x + 2, y + 3) = 1;
-        *golFetchPrev(x, y + 4)     = 1;
-        *golFetchPrev(x + 1, y + 4) = 1;
-        *golFetchPrev(x + 2, y + 4) = 1;
+        *golFetchPrev(x, y)         = species;
+        *golFetchPrev(x + 1, y)     = species;
+        *golFetchPrev(x + 2, y)     = species;
+        *golFetchPrev(x, y + 1)     = species;
+        *golFetchPrev(x, y + 2)     = species;
+        *golFetchPrev(x + 1, y + 2) = species;
+        *golFetchPrev(x + 2, y + 2) = species;
+        *golFetchPrev(x + 2, y + 3) = species;
+        *golFetchPrev(x, y + 4)     = species;
+        *golFetchPrev(x + 1, y + 4) = species;
+        *golFetchPrev(x + 2, y + 4) = species;
         break;
     case '6':
-        *golFetchPrev(x, y)         = 1;
-        *golFetchPrev(x + 1, y)     = 1;
-        *golFetchPrev(x + 2, y)     = 1;
-        *golFetchPrev(x, y + 1)     = 1;
-        *golFetchPrev(x, y + 2)     = 1;
-        *golFetchPrev(x + 1, y + 2) = 1;
-        *golFetchPrev(x + 2, y + 2) = 1;
-        *golFetchPrev(x, y + 3)     = 1;
-        *golFetchPrev(x + 2, y + 3) = 1;
-        *golFetchPrev(x, y + 4)     = 1;
-        *golFetchPrev(x + 1, y + 4) = 1;
-        *golFetchPrev(x + 2, y + 4) = 1;
+        *golFetchPrev(x, y)         = species;
+        *golFetchPrev(x + 1, y)     = species;
+        *golFetchPrev(x + 2, y)     = species;
+        *golFetchPrev(x, y + 1)     = species;
+        *golFetchPrev(x, y + 2)     = species;
+        *golFetchPrev(x + 1, y + 2) = species;
+        *golFetchPrev(x + 2, y + 2) = species;
+        *golFetchPrev(x, y + 3)     = species;
+        *golFetchPrev(x + 2, y + 3) = species;
+        *golFetchPrev(x, y + 4)     = species;
+        *golFetchPrev(x + 1, y + 4) = species;
+        *golFetchPrev(x + 2, y + 4) = species;
         break;
     case '7':
-        *golFetchPrev(x, y)         = 1;
-        *golFetchPrev(x + 1, y)     = 1;
-        *golFetchPrev(x + 2, y)     = 1;
-        *golFetchPrev(x + 2, y + 1) = 1;
-        *golFetchPrev(x + 2, y + 2) = 1;
-        *golFetchPrev(x + 2, y + 3) = 1;
-        *golFetchPrev(x + 2, y + 4) = 1;
+        *golFetchPrev(x, y)         = species;
+        *golFetchPrev(x + 1, y)     = species;
+        *golFetchPrev(x + 2, y)     = species;
+        *golFetchPrev(x + 2, y + 1) = species;
+        *golFetchPrev(x + 2, y + 2) = species;
+        *golFetchPrev(x + 2, y + 3) = species;
+        *golFetchPrev(x + 2, y + 4) = species;
         break;
     case '8':
-        *golFetchPrev(x, y)         = 1;
-        *golFetchPrev(x + 1, y)     = 1;
-        *golFetchPrev(x + 2, y)     = 1;
-        *golFetchPrev(x, y + 1)     = 1;
-        *golFetchPrev(x + 2, y + 1) = 1;
-        *golFetchPrev(x, y + 2)     = 1;
-        *golFetchPrev(x + 1, y + 2) = 1;
-        *golFetchPrev(x + 2, y + 2) = 1;
-        *golFetchPrev(x, y + 3)     = 1;
-        *golFetchPrev(x + 2, y + 3) = 1;
-        *golFetchPrev(x, y + 4)     = 1;
-        *golFetchPrev(x + 1, y + 4) = 1;
-        *golFetchPrev(x + 2, y + 4) = 1;
+        *golFetchPrev(x, y)         = species;
+        *golFetchPrev(x + 1, y)     = species;
+        *golFetchPrev(x + 2, y)     = species;
+        *golFetchPrev(x, y + 1)     = species;
+        *golFetchPrev(x + 2, y + 1) = species;
+        *golFetchPrev(x, y + 2)     = species;
+        *golFetchPrev(x + 1, y + 2) = species;
+        *golFetchPrev(x + 2, y + 2) = species;
+        *golFetchPrev(x, y + 3)     = species;
+        *golFetchPrev(x + 2, y + 3) = species;
+        *golFetchPrev(x, y + 4)     = species;
+        *golFetchPrev(x + 1, y + 4) = species;
+        *golFetchPrev(x + 2, y + 4) = species;
         break;
     case '9':
-        *golFetchPrev(x, y)         = 1;
-        *golFetchPrev(x + 1, y)     = 1;
-        *golFetchPrev(x + 2, y)     = 1;
-        *golFetchPrev(x, y + 1)     = 1;
-        *golFetchPrev(x + 2, y + 1) = 1;
-        *golFetchPrev(x, y + 2)     = 1;
-        *golFetchPrev(x + 1, y + 2) = 1;
-        *golFetchPrev(x + 2, y + 2) = 1;
-        *golFetchPrev(x + 2, y + 3) = 1;
-        *golFetchPrev(x + 2, y + 4) = 1;
+        *golFetchPrev(x, y)         = species;
+        *golFetchPrev(x + 1, y)     = species;
+        *golFetchPrev(x + 2, y)     = species;
+        *golFetchPrev(x, y + 1)     = species;
+        *golFetchPrev(x + 2, y + 1) = species;
+        *golFetchPrev(x, y + 2)     = species;
+        *golFetchPrev(x + 1, y + 2) = species;
+        *golFetchPrev(x + 2, y + 2) = species;
+        *golFetchPrev(x + 2, y + 3) = species;
+        *golFetchPrev(x + 2, y + 4) = species;
         break;
     }
 }
@@ -145,7 +145,7 @@ void golRenderString(const char* message) {
     for (unsigned int i = 0; i < strlen(message); ++i) {
         int x_char_pos = x_offset + 4 * (i % 4);
         int y_char_pos = y_offset + 7 * (i / 4);
-        renderCharacter(x_char_pos, y_char_pos, message[i]);
+        renderCharacter(x_char_pos, y_char_pos, message[i], (i % 3) + 1);
     }
 }
 
@@ -165,25 +165,45 @@ void golInit(unsigned int width, unsigned int height) {
     golHeight = height;
 }
 
-void golTick() {
-    // TODO - run one iteration step of GoL on golCells
-    for (unsigned int x = 0; x < golWidth; ++x) {
-        for (unsigned int y = 0; y < golHeight; ++y) {
-            int active_neighbors = 0;
-            for (int x_dir = -1; x_dir < 2; ++x_dir) {
-                if ((x + x_dir) >= 0 && x + x_dir < golWidth) {
-                    for (int y_dir = -1; y_dir < 2; ++y_dir) {
-                        if ((y + y_dir) >= 0 && y + y_dir < golHeight) {
-                            if (!(x_dir == 0 && y_dir == 0)) {
-                                active_neighbors += *golFetchPrev(x + x_dir, y + y_dir);
-                            }
-                        }
+unsigned int countNeighbors(unsigned int x, unsigned int y, unsigned int species) {
+    unsigned nc = 0;
+    for (int x_dir = -1; x_dir < 2; ++x_dir) {
+        if ((x + x_dir) >= 0 && x + x_dir < golWidth) {
+            for (int y_dir = -1; y_dir < 2; ++y_dir) {
+                if ((y + y_dir) >= 0 && y + y_dir < golHeight) {
+                    if (!(x_dir == 0 && y_dir == 0)) {
+                        if (*golFetchPrev(x + x_dir, y + y_dir) == species) { ++nc; }
                     }
                 }
             }
-            if (active_neighbors == 3) { *golFetch(x, y) = 1; }
-            else if (active_neighbors == 2 && *golFetchPrev(x, y) == 1) { *golFetch(x, y) = 1; }
-            else { *golFetch(x, y) = 0; }
+        }
+    }
+    return nc;
+}
+
+void golTick() {
+    for (unsigned int x = 0; x < golWidth; ++x) {
+        for (unsigned int y = 0; y < golHeight; ++y) {
+            if (*golFetchPrev(x, y) != 0) {
+                const unsigned int species = *golFetchPrev(x, y);
+                const unsigned int nc      = countNeighbors(x, y, species);
+                if (nc == 2 || nc == 3) { *golFetch(x, y) = species; }
+                else { *golFetch(x, y) = 0; }
+            }
+            else {
+                unsigned int sc[3] = {
+                    countNeighbors(x, y, 1), countNeighbors(x, y, 2), countNeighbors(x, y, 3)};
+                int alive[3]    = {0, 0, 0};
+                unsigned int ac = 0;
+                for (unsigned int i = 0; i < 3; ++i) {
+                    if (sc[i] == 3) {
+                        alive[ac] = i + 1;
+                        ++ac;
+                    }
+                }
+                if (ac > 0) { *golFetch(x, y) = alive[rand() % ac]; }
+                else { *golFetch(x, y) = 0; }
+            }
         }
     }
     // swap cells
