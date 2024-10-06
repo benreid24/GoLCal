@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rendercharacter_39',['renderCharacter',['../a00023.html#a8d6cedb3367504f23f5dec584eec16ce',1,'gol.c']]]
+  ['rendercharacter_40',['renderCharacter',['../a00023.html#aab18314325440fb857d5c4c035ed05a9',1,'gol.c']]]
 ];
