@@ -2,14 +2,33 @@
 
 #include <Constants.hpp>
 #include <DescriptorSet.hpp>
+#include <SFML/Graphics.hpp>
+#include <chrono>
 #include <gol/gol.h>
+#include <iomanip>
 
 namespace
-{} // namespace
+{
+std::string now() {
+    auto timeNow       = std::chrono::system_clock::now();
+    std::time_t time   = std::chrono::system_clock::to_time_t(timeNow);
+    std::tm local_time = *std::localtime(&time);
+    std::stringstream ss;
+    ss << std::put_time(&local_time, "%m/%d\n%Y");
+    return ss.str();
+}
+} // namespace
+
+MainState::MainState()
+: State(bl::engine::StateMask::Running)
+, residual(0.f)
+, paused(false) {}
 
 const char* MainState::name() const { return "MainState"; }
 
 void MainState::activate(bl::engine::Engine& engine) {
+    e = &engine;
+
     if (!engine.renderer().pipelineCache().pipelineExists(PipelineId)) {
         VkPipelineDepthStencilStateCreateInfo depthStencil{};
         depthStencil.sType            = VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO;
@@ -52,12 +71,12 @@ void MainState::activate(bl::engine::Engine& engine) {
 
     auto scene = engine.renderer().getObserver().pushScene<bl::rc::scene::Scene2D>();
     engine.renderer().getObserver().setCamera<bl::cam::Camera2D>(WindowSize * 0.5f, WindowSize);
-    engine.renderer().getObserver().setClearColor(bl::sfcol(sf::Color::Cyan));
+    engine.renderer().getObserver().setClearColor(bl::sfcol(sf::Color::Black));
 
     grid.create(engine, glm::vec2(Width * CellSize, Height * CellSize));
     grid.getTransform().setOrigin(grid.getSize() * 0.5f);
     grid.getTransform().setPosition(WindowSize * 0.5f);
-    grid.setFillColor(sf::Color::Red);
+    grid.setFillColor(sf::Color(21, 255, 0));
     grid.addToSceneWithCustomPipeline(scene, bl::rc::UpdateSpeed::Dynamic, PipelineId);
 
     payload           = &scene->getDescriptorSet<Set>().getBindingPayload<ShaderPayload>();
@@ -65,20 +84,24 @@ void MainState::activate(bl::engine::Engine& engine) {
     payload->width    = Width;
     payload->height   = Height;
 
-    golInit(Width, Height);
-    copyData();
+    reset();
+
+    bl::event::Dispatcher::subscribe(this);
 }
 
 void MainState::deactivate(bl::engine::Engine& engine) {
+    bl::event::Dispatcher::unsubscribe(this);
     engine.renderer().getObserver().popScene();
 }
 
 void MainState::update(bl::engine::Engine&, float dt, float) {
-    residual += dt;
-    while (residual >= TickPeriod) {
-        residual -= TickPeriod;
-        golTick();
-        copyData();
+    if (!paused) {
+        residual += dt;
+        while (residual >= TickPeriod) {
+            residual -= TickPeriod;
+            golTick();
+            copyData();
+        }
     }
 }
 
@@ -88,4 +111,42 @@ void MainState::copyData() {
             payload->cells[y * Width + x] = *golFetchPrev(x, y);
         }
     }
+}
+
+void MainState::observe(const sf::Event& event) {
+    if (event.type == sf::Event::KeyPressed) {
+        if (event.key.code == sf::Keyboard::Space) { paused = !paused; }
+        else if (event.key.code == sf::Keyboard::R) { reset(); }
+    }
+    if (event.type == sf::Event::MouseWheelScrolled) {
+        if (event.mouseWheelScroll.delta > 0.f) { e->setTimeScale(e->getTimeScale() * 0.9f); }
+        else { e->setTimeScale(e->getTimeScale() * 1.1f); }
+    }
+}
+
+void MainState::reset() {
+    golInit(Width, Height);
+
+    sf::Font font;
+    font.loadFromFile("Resources/font.ttf");
+    sf::Text text(now(), font, 48);
+    text.setLetterSpacing(3.7f);
+    text.setLineSpacing(0.65f);
+    while (text.getGlobalBounds().width + text.getGlobalBounds().left >= Width - 5 &&
+           text.getGlobalBounds().height >= Height) {
+        text.setCharacterSize(text.getCharacterSize() - 1);
+    }
+    text.setPosition((Width - text.getGlobalBounds().width) / 2, -text.getGlobalBounds().top);
+    sf::RenderTexture rt;
+    rt.create(Width, Height);
+    rt.clear(sf::Color::Transparent);
+    rt.draw(text);
+    sf::Image img = rt.getTexture().copyToImage();
+    for (unsigned int x = 0; x < Width; ++x) {
+        for (unsigned int y = 0; y < Height; ++y) {
+            if (img.getPixel(x, y).a > 0) { *golFetchPrev(x, Height - y - 1) = 1; }
+        }
+    }
+
+    copyData();
 }

@@ -28,7 +28,7 @@ void main() {
     bool isLine = x % cellSizeI == 0 || y % cellSizeI == 0 || gw - 1 == x || gh - 1 == y;
 
     if (isLine) {
-        outColor = vec4(0, 0, 0, 1);
+        outColor = vec4(1, 1, 1, 1);
     }
     else if (data.cells[cellY * data.width + cellX] == 1) {
         outColor = fragColor;

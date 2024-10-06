@@ -65,10 +65,6 @@ void golInit(unsigned int width, unsigned int height, char* message) {
     // TODO - Compute offsets to center the message
     unsigned int x_offset = 0;
     unsigned int y_offset = 0;
-
-    for (unsigned int x = 0; x < width; ++x) {
-        for (unsigned int y = 0; y < height; ++y) { *golFetchPrev(x, y) = rand() % 2; }
-    }
 }
 
 void golTick() {

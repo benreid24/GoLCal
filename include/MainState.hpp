@@ -3,13 +3,16 @@
 
 #include <BLIB/Cameras/2D/Camera2D.hpp>
 #include <BLIB/Engine/Engine.hpp>
+#include <BLIB/Events.hpp>
 #include <BLIB/Graphics.hpp>
 #include <DescriptorSet.hpp>
 
 /**
  * @brief Basic engine state that provides a spinning triangle
  */
-class MainState : public bl::engine::State {
+class MainState
+: public bl::engine::State
+, public bl::event::Listener<sf::Event> {
 public:
     static bl::engine::State::Ptr create() { return Ptr(new MainState()); }
 
@@ -22,14 +25,16 @@ public:
     virtual void update(bl::engine::Engine&, float dt, float) override;
 
 private:
+    bl::engine::Engine* e;
     bl::gfx::Rectangle grid;
     float residual;
     ShaderPayload* payload;
+    bool paused;
 
-    MainState()
-    : State(bl::engine::StateMask::Running)
-    , residual(0.f) {}
+    MainState();
+    void reset();
     void copyData();
+    virtual void observe(const sf::Event& event) override;
 };
 
 #endif
