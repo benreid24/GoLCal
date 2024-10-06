@@ -4,6 +4,7 @@
 #include <BLIB/Cameras/2D/Camera2D.hpp>
 #include <BLIB/Engine/Engine.hpp>
 #include <BLIB/Graphics.hpp>
+#include <DescriptorSet.hpp>
 
 /**
  * @brief Basic engine state that provides a spinning triangle
@@ -23,9 +24,12 @@ public:
 private:
     bl::gfx::Rectangle grid;
     float residual;
+    ShaderPayload* payload;
 
     MainState()
-    : State(bl::engine::StateMask::Running) {}
+    : State(bl::engine::StateMask::Running)
+    , residual(0.f) {}
+    void copyData();
 };
 
 #endif

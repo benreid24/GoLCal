@@ -16,6 +16,8 @@ extern "C"
 
     Cell* golFetch(unsigned int x, unsigned int y);
 
+    Cell* golFetchPrev(unsigned int x, unsigned int y);
+
 #ifdef __cplusplus
 }
 #endif

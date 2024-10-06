@@ -15,9 +15,16 @@ layout(std140, set = 1, binding = 0) readonly buffer obj {
     mat4 model[];
 } object;
 
+layout(set = 2, binding = 0) uniform sd {
+    uint width;
+    uint height;
+    vec2 gridSize;
+    uint cells[1980];
+} data;
+
 void main() {
     vec4 worldPos = object.model[gl_InstanceIndex] * vec4(inPosition, 1.0);
 	gl_Position = camera.viewProj * worldPos;
 	fragColor = inColor;
-	fragPos = vec2(worldPos.x, worldPos.y);
+    fragPos = inPosition.xy;
 }

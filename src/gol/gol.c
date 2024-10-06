@@ -1,6 +1,6 @@
 #include <gol/gol.h>
 
-#include <cstring>
+#include <string.h>
 
 Cell* golCells         = NULL;
 Cell* golPrevCells     = NULL;
@@ -28,7 +28,7 @@ void golInit(unsigned int width, unsigned int height) {
     // TODO - think about how to init cells with text rendering & remove this
     for (unsigned int x = 0; x < width; ++x) {
         for (unsigned int y = 0; y < height; ++y) {
-            if ((x % 2) != (y % 2)) { *golFetch(x, y) = 1; }
+            if ((x % 2) == (y % 2)) { *golFetchPrev(x, y) = 1; }
         }
     }
 }
