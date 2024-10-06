@@ -89,12 +89,14 @@ Functions</h2></td></tr>
 <tr class="separator:af716069d3890c21ec67cdf38512677cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c182d2dd8356e3fc151e7d6e89365b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00014.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a2c182d2dd8356e3fc151e7d6e89365b9">golFetchPrev</a> (unsigned int x, unsigned int y)</td></tr>
 <tr class="separator:a2c182d2dd8356e3fc151e7d6e89365b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab18314325440fb857d5c4c035ed05a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#aab18314325440fb857d5c4c035ed05a9">renderCharacter</a> (unsigned int x, unsigned int y, char c)</td></tr>
-<tr class="separator:aab18314325440fb857d5c4c035ed05a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a8655f35646f72e955a40d8945fa024"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a8a8655f35646f72e955a40d8945fa024">renderCharacter</a> (unsigned int x, unsigned int y, char c, unsigned int species)</td></tr>
+<tr class="separator:a8a8655f35646f72e955a40d8945fa024"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91113619a2732083aa2f04fab30d6ca0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a91113619a2732083aa2f04fab30d6ca0">golRenderString</a> (const char *message)</td></tr>
 <tr class="separator:a91113619a2732083aa2f04fab30d6ca0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab977f0722edf915e490008f4ed8db36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#aab977f0722edf915e490008f4ed8db36">golInit</a> (unsigned int width, unsigned int height)</td></tr>
 <tr class="separator:aab977f0722edf915e490008f4ed8db36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a488dc49ceed1ff52be5ec7d9c0dd8fed"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a488dc49ceed1ff52be5ec7d9c0dd8fed">countNeighbors</a> (unsigned int x, unsigned int y, unsigned int species)</td></tr>
+<tr class="separator:a488dc49ceed1ff52be5ec7d9c0dd8fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0e97ac1ef7d22d24e5510e67df05a2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#ad0e97ac1ef7d22d24e5510e67df05a2f">golTick</a> ()</td></tr>
 <tr class="separator:ad0e97ac1ef7d22d24e5510e67df05a2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -110,6 +112,42 @@ Variables</h2></td></tr>
 <tr class="separator:a0877b2ed38ac4e9152873926e06ba012"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a488dc49ceed1ff52be5ec7d9c0dd8fed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a488dc49ceed1ff52be5ec7d9c0dd8fed">&#9670;&nbsp;</a></span>countNeighbors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int countNeighbors </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>species</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00168">168</a> of file <a class="el" href="a00023_source.html">gol.c</a>.</p>
+
+</div>
+</div>
 <a id="af716069d3890c21ec67cdf38512677cc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af716069d3890c21ec67cdf38512677cc">&#9670;&nbsp;</a></span>golFetch()</h2>
 
@@ -235,12 +273,12 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00168">168</a> of file <a class="el" href="a00023_source.html">gol.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00184">184</a> of file <a class="el" href="a00023_source.html">gol.c</a>.</p>
 
 </div>
 </div>
-<a id="aab18314325440fb857d5c4c035ed05a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab18314325440fb857d5c4c035ed05a9">&#9670;&nbsp;</a></span>renderCharacter()</h2>
+<a id="a8a8655f35646f72e955a40d8945fa024"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a8655f35646f72e955a40d8945fa024">&#9670;&nbsp;</a></span>renderCharacter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -261,7 +299,13 @@ Variables</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>c</em>&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>species</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -344,7 +388,7 @@ Variables</h2></td></tr>
 <!-- HTML footer for doxygen 1.8.15-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 6 2024 22:42:29 for GoLCal by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 6 2024 23:10:54 for GoLCal by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.9.1
 </small></address>

@@ -242,23 +242,37 @@ $(function() {
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    sf::Image img = rt.getTexture().copyToImage();</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x = 0; x &lt; <a class="code" href="a00005.html#a7d33f7b2fdba55484a077db3047d33ec">Width</a>; ++x) {</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y = 0; y &lt; <a class="code" href="a00005.html#a33ab5df9c43339c5e74c756cd3421961">Height</a>; ++y) {</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            <span class="keywordflow">if</span> (img.getPixel(x, y).a &gt; 0) { *<a class="code" href="a00014.html#a2c182d2dd8356e3fc151e7d6e89365b9">golFetchPrev</a>(x, <a class="code" href="a00005.html#a33ab5df9c43339c5e74c756cd3421961">Height</a> - y - 1) = 1; }</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        }</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    }</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    copyData();</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;}</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="keywordtype">void</span> MainState::resetClock() {</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <a class="code" href="a00014.html#aab977f0722edf915e490008f4ed8db36">golInit</a>(<a class="code" href="a00005.html#a7d33f7b2fdba55484a077db3047d33ec">Width</a>, <a class="code" href="a00005.html#a33ab5df9c43339c5e74c756cd3421961">Height</a>);</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <a class="code" href="a00014.html#a91113619a2732083aa2f04fab30d6ca0">golRenderString</a>(now().c_str());</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    copyData();</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;}</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            <span class="keywordflow">if</span> (img.getPixel(x, y).a &gt; 0) {</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j = 0; j &lt; text.getString().getSize(); ++j) {</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span> cpos = text.findCharacterPos(j);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                    <span class="keyword">auto</span> glyph = font.getGlyph(text.getString()[j], text.getCharacterSize(), <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                    glyph.bounds.left = cpos.x;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                    glyph.bounds.top  = cpos.y;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                    <span class="keywordflow">if</span> (glyph.bounds.contains(x, y)) {</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                        i = j;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                    }</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                }</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="keywordtype">void</span> MainState::clear() {</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <a class="code" href="a00014.html#aab977f0722edf915e490008f4ed8db36">golInit</a>(<a class="code" href="a00005.html#a7d33f7b2fdba55484a077db3047d33ec">Width</a>, <a class="code" href="a00005.html#a33ab5df9c43339c5e74c756cd3421961">Height</a>);</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    copyData();</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;}</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                *<a class="code" href="a00014.html#a2c182d2dd8356e3fc151e7d6e89365b9">golFetchPrev</a>(x, <a class="code" href="a00005.html#a33ab5df9c43339c5e74c756cd3421961">Height</a> - y - 1) = (i % 3) + 1;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            }</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        }</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    }</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    copyData();</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;}</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="keywordtype">void</span> MainState::resetClock() {</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <a class="code" href="a00014.html#aab977f0722edf915e490008f4ed8db36">golInit</a>(<a class="code" href="a00005.html#a7d33f7b2fdba55484a077db3047d33ec">Width</a>, <a class="code" href="a00005.html#a33ab5df9c43339c5e74c756cd3421961">Height</a>);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <a class="code" href="a00014.html#a91113619a2732083aa2f04fab30d6ca0">golRenderString</a>(now().c_str());</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    copyData();</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;}</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="keywordtype">void</span> MainState::clear() {</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <a class="code" href="a00014.html#aab977f0722edf915e490008f4ed8db36">golInit</a>(<a class="code" href="a00005.html#a7d33f7b2fdba55484a077db3047d33ec">Width</a>, <a class="code" href="a00005.html#a33ab5df9c43339c5e74c756cd3421961">Height</a>);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    copyData();</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;}</div>
 <div class="ttc" id="aa00005_html"><div class="ttname"><a href="a00005.html">Constants.hpp</a></div></div>
 <div class="ttc" id="aa00005_html_a2eeb57150fadf60cc4fff0368a2ecafe"><div class="ttname"><a href="a00005.html#a2eeb57150fadf60cc4fff0368a2ecafe">WindowSize</a></div><div class="ttdeci">constexpr glm::vec2 WindowSize(WindowWidth, WindowHeight)</div></div>
 <div class="ttc" id="aa00005_html_a33ab5df9c43339c5e74c756cd3421961"><div class="ttname"><a href="a00005.html#a33ab5df9c43339c5e74c756cd3421961">Height</a></div><div class="ttdeci">constexpr unsigned int Height</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00015">Constants.hpp:15</a></div></div>
@@ -272,7 +286,7 @@ $(function() {
 <div class="ttc" id="aa00014_html_a2c182d2dd8356e3fc151e7d6e89365b9"><div class="ttname"><a href="a00014.html#a2c182d2dd8356e3fc151e7d6e89365b9">golFetchPrev</a></div><div class="ttdeci">Cell * golFetchPrev(unsigned int x, unsigned int y)</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00013">gol.c:13</a></div></div>
 <div class="ttc" id="aa00014_html_a91113619a2732083aa2f04fab30d6ca0"><div class="ttname"><a href="a00014.html#a91113619a2732083aa2f04fab30d6ca0">golRenderString</a></div><div class="ttdeci">void golRenderString(const char *message)</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00140">gol.c:140</a></div></div>
 <div class="ttc" id="aa00014_html_aab977f0722edf915e490008f4ed8db36"><div class="ttname"><a href="a00014.html#aab977f0722edf915e490008f4ed8db36">golInit</a></div><div class="ttdeci">void golInit(unsigned int width, unsigned int height)</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00152">gol.c:152</a></div></div>
-<div class="ttc" id="aa00014_html_ad0e97ac1ef7d22d24e5510e67df05a2f"><div class="ttname"><a href="a00014.html#ad0e97ac1ef7d22d24e5510e67df05a2f">golTick</a></div><div class="ttdeci">void golTick()</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00168">gol.c:168</a></div></div>
+<div class="ttc" id="aa00014_html_ad0e97ac1ef7d22d24e5510e67df05a2f"><div class="ttname"><a href="a00014.html#ad0e97ac1ef7d22d24e5510e67df05a2f">golTick</a></div><div class="ttdeci">void golTick()</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00184">gol.c:184</a></div></div>
 <div class="ttc" id="aa00017_html"><div class="ttname"><a href="a00017.html">MainState.hpp</a></div></div>
 <div class="ttc" id="aa00038_html_a022bb0c2ac2f882186c53d4d302a3698"><div class="ttname"><a href="a00038.html#a022bb0c2ac2f882186c53d4d302a3698">ShaderPayload::width</a></div><div class="ttdeci">std::uint32_t width</div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00020">DescriptorSet.hpp:20</a></div></div>
 <div class="ttc" id="aa00038_html_a33c7aeca175c126b3f156352bde214ee"><div class="ttname"><a href="a00038.html#a33c7aeca175c126b3f156352bde214ee">ShaderPayload::cells</a></div><div class="ttdeci">ShaderCell cells[Width *Height]</div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00023">DescriptorSet.hpp:23</a></div></div>
@@ -286,7 +300,7 @@ $(function() {
 <!-- HTML footer for doxygen 1.8.15-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 6 2024 22:42:29 for GoLCal by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 6 2024 23:10:54 for GoLCal by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.9.1
 </small></address>

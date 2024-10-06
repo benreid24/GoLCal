@@ -7,7 +7,8 @@ var searchData=
   ['completeshutdown_6',['completeShutdown',['../a00042.html#a5b5adf5f7c770724828ffb876df7ff24',1,'Game']]],
   ['completestartup_7',['completeStartup',['../a00042.html#a6c6614b2146abf870679addf69b083bd',1,'Game']]],
   ['constants_2ehpp_8',['Constants.hpp',['../a00005.html',1,'']]],
-  ['create_9',['create',['../a00046.html#a5d063e0ed7cce46b22c83b4908284ea5',1,'MainState']]],
-  ['createinitialenginestate_10',['createInitialEngineState',['../a00042.html#adae20f9ab21d9e40980b6ce1c75eb077',1,'Game']]],
-  ['createstartupparameters_11',['createStartupParameters',['../a00042.html#a86d83c3f04f8aa4623fff46a18aa3355',1,'Game']]]
+  ['countneighbors_9',['countNeighbors',['../a00023.html#a488dc49ceed1ff52be5ec7d9c0dd8fed',1,'gol.c']]],
+  ['create_10',['create',['../a00046.html#a5d063e0ed7cce46b22c83b4908284ea5',1,'MainState']]],
+  ['createinitialenginestate_11',['createInitialEngineState',['../a00042.html#adae20f9ab21d9e40980b6ce1c75eb077',1,'Game']]],
+  ['createstartupparameters_12',['createStartupParameters',['../a00042.html#a86d83c3f04f8aa4623fff46a18aa3355',1,'Game']]]
 ];
