@@ -26,9 +26,9 @@ extern "C"
 
     void golRenderString(const char* message);
 
-    Cell* golFetch(unsigned int x, unsigned int y);
+    Cell* golFetchNext(unsigned int x, unsigned int y);
 
-    Cell* golFetchPrev(unsigned int x, unsigned int y);
+    Cell* golFetchCur(unsigned int x, unsigned int y);
 
 #ifdef __cplusplus
 }

@@ -13,131 +13,131 @@ const Cell golSpeciesSources[3] = {{1, 66.f / 255.f, 135.f / 255.f, 245.f / 255.
                                    {2, 41.f / 255.f, 230.f / 255.f, 66.f / 255.f},
                                    {3, 214.f / 255.f, 36.f / 255.f, 36.f / 255.f}};
 
-Cell* golFetch(unsigned int x, unsigned int y) { return &golCells[y * golWidth + x]; }
+Cell* golFetchNext(unsigned int x, unsigned int y) { return &golCells[y * golWidth + x]; }
 
-Cell* golFetchPrev(unsigned int x, unsigned int y) { return &golPrevCells[y * golWidth + x]; }
+Cell* golFetchCur(unsigned int x, unsigned int y) { return &golPrevCells[y * golWidth + x]; }
 
 void renderCharacter(unsigned int x, unsigned int y, char c, Cell src) {
     switch (c) {
     case '0':
-        *golFetchPrev(x, y)         = src;
-        *golFetchPrev(x + 1, y)     = src;
-        *golFetchPrev(x + 2, y)     = src;
-        *golFetchPrev(x, y + 1)     = src;
-        *golFetchPrev(x + 2, y + 1) = src;
-        *golFetchPrev(x, y + 2)     = src;
-        *golFetchPrev(x + 2, y + 2) = src;
-        *golFetchPrev(x, y + 3)     = src;
-        *golFetchPrev(x + 2, y + 3) = src;
-        *golFetchPrev(x, y + 4)     = src;
-        *golFetchPrev(x + 1, y + 4) = src;
-        *golFetchPrev(x + 2, y + 4) = src;
+        *golFetchCur(x, y)         = src;
+        *golFetchCur(x + 1, y)     = src;
+        *golFetchCur(x + 2, y)     = src;
+        *golFetchCur(x, y + 1)     = src;
+        *golFetchCur(x + 2, y + 1) = src;
+        *golFetchCur(x, y + 2)     = src;
+        *golFetchCur(x + 2, y + 2) = src;
+        *golFetchCur(x, y + 3)     = src;
+        *golFetchCur(x + 2, y + 3) = src;
+        *golFetchCur(x, y + 4)     = src;
+        *golFetchCur(x + 1, y + 4) = src;
+        *golFetchCur(x + 2, y + 4) = src;
         break;
     case '1':
-        *golFetchPrev(x + 1, y)     = src;
-        *golFetchPrev(x + 1, y + 1) = src;
-        *golFetchPrev(x + 1, y + 2) = src;
-        *golFetchPrev(x + 1, y + 3) = src;
-        *golFetchPrev(x + 1, y + 4) = src;
+        *golFetchCur(x + 1, y)     = src;
+        *golFetchCur(x + 1, y + 1) = src;
+        *golFetchCur(x + 1, y + 2) = src;
+        *golFetchCur(x + 1, y + 3) = src;
+        *golFetchCur(x + 1, y + 4) = src;
         break;
     case '2':
-        *golFetchPrev(x, y)         = src;
-        *golFetchPrev(x + 1, y)     = src;
-        *golFetchPrev(x + 2, y)     = src;
-        *golFetchPrev(x + 2, y + 1) = src;
-        *golFetchPrev(x, y + 2)     = src;
-        *golFetchPrev(x + 1, y + 2) = src;
-        *golFetchPrev(x + 2, y + 2) = src;
-        *golFetchPrev(x, y + 3)     = src;
-        *golFetchPrev(x, y + 4)     = src;
-        *golFetchPrev(x + 1, y + 4) = src;
-        *golFetchPrev(x + 2, y + 4) = src;
+        *golFetchCur(x, y)         = src;
+        *golFetchCur(x + 1, y)     = src;
+        *golFetchCur(x + 2, y)     = src;
+        *golFetchCur(x + 2, y + 1) = src;
+        *golFetchCur(x, y + 2)     = src;
+        *golFetchCur(x + 1, y + 2) = src;
+        *golFetchCur(x + 2, y + 2) = src;
+        *golFetchCur(x, y + 3)     = src;
+        *golFetchCur(x, y + 4)     = src;
+        *golFetchCur(x + 1, y + 4) = src;
+        *golFetchCur(x + 2, y + 4) = src;
         break;
     case '3':
-        *golFetchPrev(x, y)         = src;
-        *golFetchPrev(x + 1, y)     = src;
-        *golFetchPrev(x + 2, y)     = src;
-        *golFetchPrev(x + 2, y + 1) = src;
-        *golFetchPrev(x + 1, y + 2) = src;
-        *golFetchPrev(x + 2, y + 2) = src;
-        *golFetchPrev(x + 2, y + 3) = src;
-        *golFetchPrev(x, y + 4)     = src;
-        *golFetchPrev(x + 1, y + 4) = src;
-        *golFetchPrev(x + 2, y + 4) = src;
+        *golFetchCur(x, y)         = src;
+        *golFetchCur(x + 1, y)     = src;
+        *golFetchCur(x + 2, y)     = src;
+        *golFetchCur(x + 2, y + 1) = src;
+        *golFetchCur(x + 1, y + 2) = src;
+        *golFetchCur(x + 2, y + 2) = src;
+        *golFetchCur(x + 2, y + 3) = src;
+        *golFetchCur(x, y + 4)     = src;
+        *golFetchCur(x + 1, y + 4) = src;
+        *golFetchCur(x + 2, y + 4) = src;
         break;
     case '4':
-        *golFetchPrev(x, y)         = src;
-        *golFetchPrev(x + 2, y)     = src;
-        *golFetchPrev(x, y + 1)     = src;
-        *golFetchPrev(x + 2, y + 1) = src;
-        *golFetchPrev(x, y + 2)     = src;
-        *golFetchPrev(x + 1, y + 2) = src;
-        *golFetchPrev(x + 2, y + 2) = src;
-        *golFetchPrev(x + 2, y + 3) = src;
-        *golFetchPrev(x + 2, y + 4) = src;
+        *golFetchCur(x, y)         = src;
+        *golFetchCur(x + 2, y)     = src;
+        *golFetchCur(x, y + 1)     = src;
+        *golFetchCur(x + 2, y + 1) = src;
+        *golFetchCur(x, y + 2)     = src;
+        *golFetchCur(x + 1, y + 2) = src;
+        *golFetchCur(x + 2, y + 2) = src;
+        *golFetchCur(x + 2, y + 3) = src;
+        *golFetchCur(x + 2, y + 4) = src;
         break;
     case '5':
-        *golFetchPrev(x, y)         = src;
-        *golFetchPrev(x + 1, y)     = src;
-        *golFetchPrev(x + 2, y)     = src;
-        *golFetchPrev(x, y + 1)     = src;
-        *golFetchPrev(x, y + 2)     = src;
-        *golFetchPrev(x + 1, y + 2) = src;
-        *golFetchPrev(x + 2, y + 2) = src;
-        *golFetchPrev(x + 2, y + 3) = src;
-        *golFetchPrev(x, y + 4)     = src;
-        *golFetchPrev(x + 1, y + 4) = src;
-        *golFetchPrev(x + 2, y + 4) = src;
+        *golFetchCur(x, y)         = src;
+        *golFetchCur(x + 1, y)     = src;
+        *golFetchCur(x + 2, y)     = src;
+        *golFetchCur(x, y + 1)     = src;
+        *golFetchCur(x, y + 2)     = src;
+        *golFetchCur(x + 1, y + 2) = src;
+        *golFetchCur(x + 2, y + 2) = src;
+        *golFetchCur(x + 2, y + 3) = src;
+        *golFetchCur(x, y + 4)     = src;
+        *golFetchCur(x + 1, y + 4) = src;
+        *golFetchCur(x + 2, y + 4) = src;
         break;
     case '6':
-        *golFetchPrev(x, y)         = src;
-        *golFetchPrev(x + 1, y)     = src;
-        *golFetchPrev(x + 2, y)     = src;
-        *golFetchPrev(x, y + 1)     = src;
-        *golFetchPrev(x, y + 2)     = src;
-        *golFetchPrev(x + 1, y + 2) = src;
-        *golFetchPrev(x + 2, y + 2) = src;
-        *golFetchPrev(x, y + 3)     = src;
-        *golFetchPrev(x + 2, y + 3) = src;
-        *golFetchPrev(x, y + 4)     = src;
-        *golFetchPrev(x + 1, y + 4) = src;
-        *golFetchPrev(x + 2, y + 4) = src;
+        *golFetchCur(x, y)         = src;
+        *golFetchCur(x + 1, y)     = src;
+        *golFetchCur(x + 2, y)     = src;
+        *golFetchCur(x, y + 1)     = src;
+        *golFetchCur(x, y + 2)     = src;
+        *golFetchCur(x + 1, y + 2) = src;
+        *golFetchCur(x + 2, y + 2) = src;
+        *golFetchCur(x, y + 3)     = src;
+        *golFetchCur(x + 2, y + 3) = src;
+        *golFetchCur(x, y + 4)     = src;
+        *golFetchCur(x + 1, y + 4) = src;
+        *golFetchCur(x + 2, y + 4) = src;
         break;
     case '7':
-        *golFetchPrev(x, y)         = src;
-        *golFetchPrev(x + 1, y)     = src;
-        *golFetchPrev(x + 2, y)     = src;
-        *golFetchPrev(x + 2, y + 1) = src;
-        *golFetchPrev(x + 2, y + 2) = src;
-        *golFetchPrev(x + 2, y + 3) = src;
-        *golFetchPrev(x + 2, y + 4) = src;
+        *golFetchCur(x, y)         = src;
+        *golFetchCur(x + 1, y)     = src;
+        *golFetchCur(x + 2, y)     = src;
+        *golFetchCur(x + 2, y + 1) = src;
+        *golFetchCur(x + 2, y + 2) = src;
+        *golFetchCur(x + 2, y + 3) = src;
+        *golFetchCur(x + 2, y + 4) = src;
         break;
     case '8':
-        *golFetchPrev(x, y)         = src;
-        *golFetchPrev(x + 1, y)     = src;
-        *golFetchPrev(x + 2, y)     = src;
-        *golFetchPrev(x, y + 1)     = src;
-        *golFetchPrev(x + 2, y + 1) = src;
-        *golFetchPrev(x, y + 2)     = src;
-        *golFetchPrev(x + 1, y + 2) = src;
-        *golFetchPrev(x + 2, y + 2) = src;
-        *golFetchPrev(x, y + 3)     = src;
-        *golFetchPrev(x + 2, y + 3) = src;
-        *golFetchPrev(x, y + 4)     = src;
-        *golFetchPrev(x + 1, y + 4) = src;
-        *golFetchPrev(x + 2, y + 4) = src;
+        *golFetchCur(x, y)         = src;
+        *golFetchCur(x + 1, y)     = src;
+        *golFetchCur(x + 2, y)     = src;
+        *golFetchCur(x, y + 1)     = src;
+        *golFetchCur(x + 2, y + 1) = src;
+        *golFetchCur(x, y + 2)     = src;
+        *golFetchCur(x + 1, y + 2) = src;
+        *golFetchCur(x + 2, y + 2) = src;
+        *golFetchCur(x, y + 3)     = src;
+        *golFetchCur(x + 2, y + 3) = src;
+        *golFetchCur(x, y + 4)     = src;
+        *golFetchCur(x + 1, y + 4) = src;
+        *golFetchCur(x + 2, y + 4) = src;
         break;
     case '9':
-        *golFetchPrev(x, y)         = src;
-        *golFetchPrev(x + 1, y)     = src;
-        *golFetchPrev(x + 2, y)     = src;
-        *golFetchPrev(x, y + 1)     = src;
-        *golFetchPrev(x + 2, y + 1) = src;
-        *golFetchPrev(x, y + 2)     = src;
-        *golFetchPrev(x + 1, y + 2) = src;
-        *golFetchPrev(x + 2, y + 2) = src;
-        *golFetchPrev(x + 2, y + 3) = src;
-        *golFetchPrev(x + 2, y + 4) = src;
+        *golFetchCur(x, y)         = src;
+        *golFetchCur(x + 1, y)     = src;
+        *golFetchCur(x + 2, y)     = src;
+        *golFetchCur(x, y + 1)     = src;
+        *golFetchCur(x + 2, y + 1) = src;
+        *golFetchCur(x, y + 2)     = src;
+        *golFetchCur(x + 1, y + 2) = src;
+        *golFetchCur(x + 2, y + 2) = src;
+        *golFetchCur(x + 2, y + 3) = src;
+        *golFetchCur(x + 2, y + 4) = src;
         break;
     }
 }
@@ -205,7 +205,7 @@ unsigned int countNeighbors(unsigned int x, unsigned int y, CellGroup* neighborG
             for (int y_dir = -1; y_dir < 2; ++y_dir) {
                 if ((y + y_dir) >= 0 && y + y_dir < golHeight) {
                     if (!(x_dir == 0 && y_dir == 0)) {
-                        Cell* cell = golFetchPrev(x + x_dir, y + y_dir);
+                        Cell* cell = golFetchCur(x + x_dir, y + y_dir);
                         if (cell->species != 0) { nc = addCellToGroups(neighborGroups, nc, cell); }
                     }
                 }
@@ -225,7 +225,7 @@ void golTick() {
     for (unsigned int x = 0; x < golWidth; ++x) {
         for (unsigned int y = 0; y < golHeight; ++y) {
             neighborCount = countNeighbors(x, y, &neighborGroups);
-            Cell* cell    = golFetchPrev(x, y);
+            Cell* cell    = golFetchCur(x, y);
 
             if (cell->species != 0) {
                 unsigned int sameNeighbors = 0;
@@ -235,8 +235,8 @@ void golTick() {
                         break;
                     }
                 }
-                if (sameNeighbors == 2 || sameNeighbors == 3) { *golFetch(x, y) = *cell; }
-                else { *golFetch(x, y) = golDead; }
+                if (sameNeighbors == 2 || sameNeighbors == 3) { *golFetchNext(x, y) = *cell; }
+                else { *golFetchNext(x, y) = golDead; }
             }
             else {
                 spawnerCount = 0;
@@ -246,8 +246,8 @@ void golTick() {
                         ++spawnerCount;
                     }
                 }
-                if (spawnerCount > 0) { *golFetch(x, y) = *spawners[rand() % spawnerCount]; }
-                else { *golFetch(x, y) = golDead; }
+                if (spawnerCount > 0) { *golFetchNext(x, y) = *spawners[rand() % spawnerCount]; }
+                else { *golFetchNext(x, y) = golDead; }
             }
         }
     }

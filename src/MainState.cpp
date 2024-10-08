@@ -114,8 +114,8 @@ void MainState::update(bl::engine::Engine& engine, float dt, float) {
         const glm::u32vec2 coord = lpos / CellSize;
         if (coord != prevClick && coord.x < Width && coord.y < Height) {
             prevClick = coord;
-            *golFetchPrev(coord.x, coord.y) =
-                golFetchPrev(coord.x, coord.y)->species != 0 ? golDead : golSpeciesSources[1];
+            *golFetchCur(coord.x, coord.y) =
+                golFetchCur(coord.x, coord.y)->species != 0 ? golDead : golSpeciesSources[1];
             copyData();
         }
     }
@@ -125,7 +125,7 @@ void MainState::update(bl::engine::Engine& engine, float dt, float) {
 void MainState::copyData() {
     for (unsigned int x = 0; x < Width; ++x) {
         for (unsigned int y = 0; y < Height; ++y) {
-            payload->cells[y * Width + x] = *golFetchPrev(x, y);
+            payload->cells[y * Width + x] = *golFetchCur(x, y);
         }
     }
 }
@@ -180,7 +180,7 @@ void MainState::resetFat() {
                     }
                 }
 
-                *golFetchPrev(x, Height - y - 1) = golSpeciesSources[i % 3];
+                *golFetchCur(x, Height - y - 1) = golSpeciesSources[i % 3];
             }
         }
     }
