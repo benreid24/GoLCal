@@ -113,8 +113,9 @@ void MainState::update(bl::engine::Engine& engine, float dt, float) {
             wpos - (grid.getTransform().getGlobalPosition() - grid.getTransform().getOrigin());
         const glm::u32vec2 coord = lpos / CellSize;
         if (coord != prevClick && coord.x < Width && coord.y < Height) {
-            prevClick                       = coord;
-            *golFetchPrev(coord.x, coord.y) = *golFetchPrev(coord.x, coord.y) == 1 ? 0 : 1;
+            prevClick = coord;
+            *golFetchPrev(coord.x, coord.y) =
+                golFetchPrev(coord.x, coord.y)->species != 0 ? golDead : golSpeciesSources[1];
             copyData();
         }
     }
@@ -179,7 +180,7 @@ void MainState::resetFat() {
                     }
                 }
 
-                *golFetchPrev(x, Height - y - 1) = (i % 3) + 1;
+                *golFetchPrev(x, Height - y - 1) = golSpeciesSources[i % 3];
             }
         }
     }

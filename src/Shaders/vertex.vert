@@ -15,11 +15,16 @@ layout(std140, set = 1, binding = 0) readonly buffer obj {
     mat4 model[];
 } object;
 
+struct Cell {
+    uint species;
+    vec3 color;
+};
+
 layout(set = 2, binding = 0) uniform sd {
     uint width;
     uint height;
     vec2 gridSize;
-    uint cells[1980];
+    Cell cells[1980];
 } data;
 
 void main() {

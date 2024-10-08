@@ -8,7 +8,17 @@ extern "C"
 {
 #endif
 
-    typedef unsigned char Cell;
+    struct Cell {
+        unsigned int species;
+        float r;
+        float g;
+        float b;
+    };
+
+    typedef struct Cell Cell;
+
+    extern const Cell golSpeciesSources[3];
+    extern const Cell golDead;
 
     void golInit(unsigned int width, unsigned int height);
 

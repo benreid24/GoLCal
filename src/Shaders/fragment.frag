@@ -6,11 +6,16 @@ layout(location = 1) in vec2 fragPos;
 
 layout(location = 0) out vec4 outColor;
 
+struct Cell {
+    uint species;
+    vec3 color;
+};
+
 layout(set = 2, binding = 0) uniform sd {
     uint width;
     uint height;
     vec2 gridSize;
-    uint cells[1980];
+    Cell cells[1980];
 } data;
 
 void main() {
@@ -31,19 +36,6 @@ void main() {
         outColor = vec4(1, 1, 1, 1);
     }
     else {
-        switch (data.cells[cellY * data.width + cellX]) {
-        case 0:
-            outColor = vec4(0);
-            break;
-        case 1:
-            outColor = vec4(66.0 / 255.0, 135.0 / 255.0, 245.0 / 255.0, 1);
-            break;
-        case 2:
-            outColor = vec4(41.0 / 255.0, 230.0 / 255.0, 66.0 / 255.0, 1);
-            break;
-        case 3:
-            outColor = vec4(214.0 / 255.0, 36.0 / 255.0, 36 / 255.0, 1);
-            break;
-        }
+        outColor = vec4(data.cells[cellY * data.width + cellX].color, 1.0);
     }
 }

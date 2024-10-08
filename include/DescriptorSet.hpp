@@ -7,11 +7,14 @@
 #include <gol/gol.h>
 
 struct ShaderCell {
-    unsigned int value;
-    unsigned int padding[3];
+    unsigned int species;
+    glm::vec3 color;
 
     ShaderCell& operator=(Cell val) {
-        value = val;
+        species = val.species;
+        color.x = val.r;
+        color.y = val.g;
+        color.z = val.b;
         return *this;
     }
 };
