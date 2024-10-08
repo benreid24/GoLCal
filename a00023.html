@@ -97,10 +97,10 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af716069d3890c21ec67cdf38512677cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00046.html">Cell</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#af716069d3890c21ec67cdf38512677cc">golFetch</a> (unsigned int x, unsigned int y)</td></tr>
-<tr class="separator:af716069d3890c21ec67cdf38512677cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c182d2dd8356e3fc151e7d6e89365b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00046.html">Cell</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a2c182d2dd8356e3fc151e7d6e89365b9">golFetchPrev</a> (unsigned int x, unsigned int y)</td></tr>
-<tr class="separator:a2c182d2dd8356e3fc151e7d6e89365b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8339dbc6961eff7869a1e861ac558ea2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00046.html">Cell</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a8339dbc6961eff7869a1e861ac558ea2">golFetchNext</a> (unsigned int x, unsigned int y)</td></tr>
+<tr class="separator:a8339dbc6961eff7869a1e861ac558ea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78c35d9fc4f2f50dd00005959b31b21d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00046.html">Cell</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a78c35d9fc4f2f50dd00005959b31b21d">golFetchCur</a> (unsigned int x, unsigned int y)</td></tr>
+<tr class="separator:a78c35d9fc4f2f50dd00005959b31b21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75f9ff23cec2193b070e1d87bf1c0bad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a75f9ff23cec2193b070e1d87bf1c0bad">renderCharacter</a> (unsigned int x, unsigned int y, char c, <a class="el" href="a00046.html">Cell</a> src)</td></tr>
 <tr class="separator:a75f9ff23cec2193b070e1d87bf1c0bad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91113619a2732083aa2f04fab30d6ca0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a91113619a2732083aa2f04fab30d6ca0">golRenderString</a> (const char *message)</td></tr>
@@ -219,44 +219,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="af716069d3890c21ec67cdf38512677cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af716069d3890c21ec67cdf38512677cc">&#9670;&nbsp;</a></span>golFetch()</h2>
+<a id="a78c35d9fc4f2f50dd00005959b31b21d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78c35d9fc4f2f50dd00005959b31b21d">&#9670;&nbsp;</a></span>golFetchCur()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00046.html">Cell</a>* golFetch </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00016">16</a> of file <a class="el" href="a00023_source.html">gol.c</a>.</p>
-
-</div>
-</div>
-<a id="a2c182d2dd8356e3fc151e7d6e89365b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c182d2dd8356e3fc151e7d6e89365b9">&#9670;&nbsp;</a></span>golFetchPrev()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00046.html">Cell</a>* golFetchPrev </td>
+          <td class="memname"><a class="el" href="a00046.html">Cell</a>* golFetchCur </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
           <td class="paramname"><em>x</em>, </td>
@@ -276,6 +246,36 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="a00023_source.html#l00018">18</a> of file <a class="el" href="a00023_source.html">gol.c</a>.</p>
+
+</div>
+</div>
+<a id="a8339dbc6961eff7869a1e861ac558ea2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8339dbc6961eff7869a1e861ac558ea2">&#9670;&nbsp;</a></span>golFetchNext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00046.html">Cell</a>* golFetchNext </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00016">16</a> of file <a class="el" href="a00023_source.html">gol.c</a>.</p>
 
 </div>
 </div>
@@ -494,7 +494,7 @@ Variables</h2></td></tr>
 <!-- HTML footer for doxygen 1.8.15-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 8 2024 02:15:00 for GoLCal by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 8 2024 02:16:47 for GoLCal by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.9.1
 </small></address>
