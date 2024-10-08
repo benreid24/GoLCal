@@ -74,7 +74,7 @@ $(function() {
 <div class="title">gol.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00014.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef GOL_H</span></div>
+<a href="a00014.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="a00014.html#a60bf09598e66928bf67a21a22bc17814">    1</a></span>&#160;<span class="preprocessor">#ifndef GOL_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define GOL_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
@@ -84,34 +84,50 @@ $(function() {
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="a00014.html#a53efbb3b59542e13799bdf1fd8607c44">   11</a></span>&#160;    <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="a00014.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a>;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a00014.html#aab977f0722edf915e490008f4ed8db36">golInit</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a00014.html#ad0e97ac1ef7d22d24e5510e67df05a2f">golTick</a>();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a00014.html#a91113619a2732083aa2f04fab30d6ca0">golRenderString</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* message);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="a00014.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a>* <a class="code" href="a00014.html#af716069d3890c21ec67cdf38512677cc">golFetch</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="a00014.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a>* <a class="code" href="a00014.html#a2c182d2dd8356e3fc151e7d6e89365b9">golFetchPrev</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="a00046.html">   11</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a00046.html">Cell</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="a00046.html#a64c70fc8b274b7c11f3e504f23869dfe">   12</a></span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="a00046.html#a64c70fc8b274b7c11f3e504f23869dfe">species</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="a00046.html#a203d983c08db5c63b429a64cc62a9be6">   13</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="a00046.html#a203d983c08db5c63b429a64cc62a9be6">r</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="a00046.html#afeab35def332e703d4ae223a5abf1997">   14</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="a00046.html#afeab35def332e703d4ae223a5abf1997">g</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="a00046.html#af0e222207a534e286c562cc2157f2583">   15</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="a00046.html#af0e222207a534e286c562cc2157f2583">b</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    };</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="a00046.html">Cell</a> <a class="code" href="a00046.html">Cell</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">extern</span> <span class="keyword">const</span> <a class="code" href="a00046.html">Cell</a> <a class="code" href="a00014.html#a0b709ba8b274a608db03e40693cc4c76">golSpeciesSources</a>[3];</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">extern</span> <span class="keyword">const</span> <a class="code" href="a00046.html">Cell</a> <a class="code" href="a00014.html#ad6a87c7e46ec09653aa1566362e39a2a">golDead</a>;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a00014.html#aab977f0722edf915e490008f4ed8db36">golInit</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a00014.html#ad0e97ac1ef7d22d24e5510e67df05a2f">golTick</a>();</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aa00014_html_a2c182d2dd8356e3fc151e7d6e89365b9"><div class="ttname"><a href="a00014.html#a2c182d2dd8356e3fc151e7d6e89365b9">golFetchPrev</a></div><div class="ttdeci">Cell * golFetchPrev(unsigned int x, unsigned int y)</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00013">gol.c:13</a></div></div>
-<div class="ttc" id="aa00014_html_a53efbb3b59542e13799bdf1fd8607c44"><div class="ttname"><a href="a00014.html#a53efbb3b59542e13799bdf1fd8607c44">Cell</a></div><div class="ttdeci">unsigned char Cell</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00011">gol.h:11</a></div></div>
-<div class="ttc" id="aa00014_html_a91113619a2732083aa2f04fab30d6ca0"><div class="ttname"><a href="a00014.html#a91113619a2732083aa2f04fab30d6ca0">golRenderString</a></div><div class="ttdeci">void golRenderString(const char *message)</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00140">gol.c:140</a></div></div>
-<div class="ttc" id="aa00014_html_aab977f0722edf915e490008f4ed8db36"><div class="ttname"><a href="a00014.html#aab977f0722edf915e490008f4ed8db36">golInit</a></div><div class="ttdeci">void golInit(unsigned int width, unsigned int height)</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00152">gol.c:152</a></div></div>
-<div class="ttc" id="aa00014_html_ad0e97ac1ef7d22d24e5510e67df05a2f"><div class="ttname"><a href="a00014.html#ad0e97ac1ef7d22d24e5510e67df05a2f">golTick</a></div><div class="ttdeci">void golTick()</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00184">gol.c:184</a></div></div>
-<div class="ttc" id="aa00014_html_af716069d3890c21ec67cdf38512677cc"><div class="ttname"><a href="a00014.html#af716069d3890c21ec67cdf38512677cc">golFetch</a></div><div class="ttdeci">Cell * golFetch(unsigned int x, unsigned int y)</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00011">gol.c:11</a></div></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a00014.html#a91113619a2732083aa2f04fab30d6ca0">golRenderString</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* message);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="a00046.html">Cell</a>* <a class="code" href="a00014.html#af716069d3890c21ec67cdf38512677cc">golFetch</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="a00046.html">Cell</a>* <a class="code" href="a00014.html#a2c182d2dd8356e3fc151e7d6e89365b9">golFetchPrev</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aa00014_html_a0b709ba8b274a608db03e40693cc4c76"><div class="ttname"><a href="a00014.html#a0b709ba8b274a608db03e40693cc4c76">golSpeciesSources</a></div><div class="ttdeci">const Cell golSpeciesSources[3]</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00012">gol.c:12</a></div></div>
+<div class="ttc" id="aa00014_html_a2c182d2dd8356e3fc151e7d6e89365b9"><div class="ttname"><a href="a00014.html#a2c182d2dd8356e3fc151e7d6e89365b9">golFetchPrev</a></div><div class="ttdeci">Cell * golFetchPrev(unsigned int x, unsigned int y)</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00018">gol.c:18</a></div></div>
+<div class="ttc" id="aa00014_html_a91113619a2732083aa2f04fab30d6ca0"><div class="ttname"><a href="a00014.html#a91113619a2732083aa2f04fab30d6ca0">golRenderString</a></div><div class="ttdeci">void golRenderString(const char *message)</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00145">gol.c:145</a></div></div>
+<div class="ttc" id="aa00014_html_aab977f0722edf915e490008f4ed8db36"><div class="ttname"><a href="a00014.html#aab977f0722edf915e490008f4ed8db36">golInit</a></div><div class="ttdeci">void golInit(unsigned int width, unsigned int height)</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00157">gol.c:157</a></div></div>
+<div class="ttc" id="aa00014_html_ad0e97ac1ef7d22d24e5510e67df05a2f"><div class="ttname"><a href="a00014.html#ad0e97ac1ef7d22d24e5510e67df05a2f">golTick</a></div><div class="ttdeci">void golTick()</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00218">gol.c:218</a></div></div>
+<div class="ttc" id="aa00014_html_ad6a87c7e46ec09653aa1566362e39a2a"><div class="ttname"><a href="a00014.html#ad6a87c7e46ec09653aa1566362e39a2a">golDead</a></div><div class="ttdeci">const Cell golDead</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00011">gol.c:11</a></div></div>
+<div class="ttc" id="aa00014_html_af716069d3890c21ec67cdf38512677cc"><div class="ttname"><a href="a00014.html#af716069d3890c21ec67cdf38512677cc">golFetch</a></div><div class="ttdeci">Cell * golFetch(unsigned int x, unsigned int y)</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00016">gol.c:16</a></div></div>
+<div class="ttc" id="aa00046_html"><div class="ttname"><a href="a00046.html">Cell</a></div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00011">gol.h:11</a></div></div>
+<div class="ttc" id="aa00046_html_a203d983c08db5c63b429a64cc62a9be6"><div class="ttname"><a href="a00046.html#a203d983c08db5c63b429a64cc62a9be6">Cell::r</a></div><div class="ttdeci">float r</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00013">gol.h:13</a></div></div>
+<div class="ttc" id="aa00046_html_a64c70fc8b274b7c11f3e504f23869dfe"><div class="ttname"><a href="a00046.html#a64c70fc8b274b7c11f3e504f23869dfe">Cell::species</a></div><div class="ttdeci">unsigned int species</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00012">gol.h:12</a></div></div>
+<div class="ttc" id="aa00046_html_af0e222207a534e286c562cc2157f2583"><div class="ttname"><a href="a00046.html#af0e222207a534e286c562cc2157f2583">Cell::b</a></div><div class="ttdeci">float b</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00015">gol.h:15</a></div></div>
+<div class="ttc" id="aa00046_html_afeab35def332e703d4ae223a5abf1997"><div class="ttname"><a href="a00046.html#afeab35def332e703d4ae223a5abf1997">Cell::g</a></div><div class="ttdeci">float g</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00014">gol.h:14</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.15-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 6 2024 23:10:54 for GoLCal by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 8 2024 02:15:00 for GoLCal by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.9.1
 </small></address>

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['tickperiod_99',['TickPeriod',['../a00005.html#a54623d5f48d624a88ad76c805182405a',1,'Constants.hpp']]],
-  ['tickspersecond_100',['TicksPerSecond',['../a00005.html#a2d459d518bdafd2db34b73ff19a11634',1,'Constants.hpp']]]
+  ['info_114',['info',['../a00054.html#aee4ba5575d4f4b125f57c0fa1cb1b2a6',1,'CellGroup']]]
 ];
