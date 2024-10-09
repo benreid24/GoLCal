@@ -3,19 +3,27 @@
 #include <string.h>
 #include <time.h>
 
-Cell* golCells         = NULL;
-Cell* golPrevCells     = NULL;
-unsigned int golWidth  = 0;
-unsigned int golHeight = 0;
+Cell* golCells     = NULL;
+Cell* golPrevCells = NULL;
+int golWidth       = 0;
+int golHeight      = 0;
 
 const Cell golDead              = {0, 0.f, 0.f, 0.f};
 const Cell golSpeciesSources[3] = {{1, 66.f / 255.f, 135.f / 255.f, 245.f / 255.f},
-                                   {2, 41.f / 255.f, 230.f / 255.f, 66.f / 255.f},
-                                   {3, 214.f / 255.f, 36.f / 255.f, 36.f / 255.f}};
+                                   {1, 41.f / 255.f, 230.f / 255.f, 66.f / 255.f},
+                                   {1, 214.f / 255.f, 36.f / 255.f, 36.f / 255.f}};
 
-Cell* golFetchNext(unsigned int x, unsigned int y) { return &golCells[y * golWidth + x]; }
+Cell* golFetchNext(int x, int y) {
+    x = x >= 0 ? x % golWidth : golWidth + x;
+    y = y >= 0 ? y % golHeight : golHeight + y;
+    return &golCells[y * golWidth + x];
+}
 
-Cell* golFetchCur(unsigned int x, unsigned int y) { return &golPrevCells[y * golWidth + x]; }
+Cell* golFetchCur(int x, int y) {
+    x = x >= 0 ? x % golWidth : golWidth + x;
+    y = y >= 0 ? y % golHeight : golHeight + y;
+    return &golPrevCells[y * golWidth + x];
+}
 
 void renderCharacter(unsigned int x, unsigned int y, char c, Cell src) {
     switch (c) {
@@ -198,17 +206,13 @@ unsigned int addCellToGroups(CellGroup* groups, unsigned int groupCount, Cell* c
     return groupCount + 1;
 }
 
-unsigned int countNeighbors(unsigned int x, unsigned int y, CellGroup* neighborGroups) {
+unsigned int countNeighbors(int x, int y, CellGroup* neighborGroups) {
     unsigned nc = 0;
     for (int x_dir = -1; x_dir < 2; ++x_dir) {
-        if ((x + x_dir) >= 0 && x + x_dir < golWidth) {
-            for (int y_dir = -1; y_dir < 2; ++y_dir) {
-                if ((y + y_dir) >= 0 && y + y_dir < golHeight) {
-                    if (!(x_dir == 0 && y_dir == 0)) {
-                        Cell* cell = golFetchCur(x + x_dir, y + y_dir);
-                        if (cell->species != 0) { nc = addCellToGroups(neighborGroups, nc, cell); }
-                    }
-                }
+        for (int y_dir = -1; y_dir < 2; ++y_dir) {
+            if (!(x_dir == 0 && y_dir == 0)) {
+                Cell* cell = golFetchCur(x + x_dir, y + y_dir);
+                if (cell->species != 0) { nc = addCellToGroups(neighborGroups, nc, cell); }
             }
         }
     }
@@ -222,8 +226,8 @@ void golTick() {
     Cell* spawners[2];
     unsigned int spawnerCount = 0;
 
-    for (unsigned int x = 0; x < golWidth; ++x) {
-        for (unsigned int y = 0; y < golHeight; ++y) {
+    for (int x = 0; x < golWidth; ++x) {
+        for (int y = 0; y < golHeight; ++y) {
             neighborCount = countNeighbors(x, y, &neighborGroups);
             Cell* cell    = golFetchCur(x, y);
 
