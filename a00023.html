@@ -97,10 +97,10 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8339dbc6961eff7869a1e861ac558ea2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00046.html">Cell</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a8339dbc6961eff7869a1e861ac558ea2">golFetchNext</a> (unsigned int x, unsigned int y)</td></tr>
-<tr class="separator:a8339dbc6961eff7869a1e861ac558ea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78c35d9fc4f2f50dd00005959b31b21d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00046.html">Cell</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a78c35d9fc4f2f50dd00005959b31b21d">golFetchCur</a> (unsigned int x, unsigned int y)</td></tr>
-<tr class="separator:a78c35d9fc4f2f50dd00005959b31b21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afac01d9c7076a5434b4f9a624223bdd2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00046.html">Cell</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#afac01d9c7076a5434b4f9a624223bdd2">golFetchNext</a> (int x, int y)</td></tr>
+<tr class="separator:afac01d9c7076a5434b4f9a624223bdd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56206fe6268fdd67437bd5b450e088b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00046.html">Cell</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a56206fe6268fdd67437bd5b450e088b1">golFetchCur</a> (int x, int y)</td></tr>
+<tr class="separator:a56206fe6268fdd67437bd5b450e088b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75f9ff23cec2193b070e1d87bf1c0bad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a75f9ff23cec2193b070e1d87bf1c0bad">renderCharacter</a> (unsigned int x, unsigned int y, char c, <a class="el" href="a00046.html">Cell</a> src)</td></tr>
 <tr class="separator:a75f9ff23cec2193b070e1d87bf1c0bad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91113619a2732083aa2f04fab30d6ca0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a91113619a2732083aa2f04fab30d6ca0">golRenderString</a> (const char *message)</td></tr>
@@ -109,8 +109,8 @@ Functions</h2></td></tr>
 <tr class="separator:aab977f0722edf915e490008f4ed8db36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fb1f8d3d953ad1dd292e0280048fdbe"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a6fb1f8d3d953ad1dd292e0280048fdbe">addCellToGroups</a> (<a class="el" href="a00054.html">CellGroup</a> *groups, unsigned int groupCount, <a class="el" href="a00046.html">Cell</a> *cell)</td></tr>
 <tr class="separator:a6fb1f8d3d953ad1dd292e0280048fdbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29b5563998c07dbf9b1e14d56acac6d3"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a29b5563998c07dbf9b1e14d56acac6d3">countNeighbors</a> (unsigned int x, unsigned int y, <a class="el" href="a00054.html">CellGroup</a> *neighborGroups)</td></tr>
-<tr class="separator:a29b5563998c07dbf9b1e14d56acac6d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4ccdb0600dbbbe6121e7ad97113cfe6"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#ab4ccdb0600dbbbe6121e7ad97113cfe6">countNeighbors</a> (int x, int y, <a class="el" href="a00054.html">CellGroup</a> *neighborGroups)</td></tr>
+<tr class="separator:ab4ccdb0600dbbbe6121e7ad97113cfe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0e97ac1ef7d22d24e5510e67df05a2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#ad0e97ac1ef7d22d24e5510e67df05a2f">golTick</a> ()</td></tr>
 <tr class="separator:ad0e97ac1ef7d22d24e5510e67df05a2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -120,10 +120,10 @@ Variables</h2></td></tr>
 <tr class="separator:a95f5eb33758d3a83bb6baa02eedc8ec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24bbd656538ac4a9efb6b9aa98789438"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00046.html">Cell</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a24bbd656538ac4a9efb6b9aa98789438">golPrevCells</a> = NULL</td></tr>
 <tr class="separator:a24bbd656538ac4a9efb6b9aa98789438"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9da88196c74a55ea458d0bd487aef307"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a9da88196c74a55ea458d0bd487aef307">golWidth</a> = 0</td></tr>
-<tr class="separator:a9da88196c74a55ea458d0bd487aef307"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0877b2ed38ac4e9152873926e06ba012"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a0877b2ed38ac4e9152873926e06ba012">golHeight</a> = 0</td></tr>
-<tr class="separator:a0877b2ed38ac4e9152873926e06ba012"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7c03060eb11ec178b81eeeaaaa0e506"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#ad7c03060eb11ec178b81eeeaaaa0e506">golWidth</a> = 0</td></tr>
+<tr class="separator:ad7c03060eb11ec178b81eeeaaaa0e506"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d83f91c3becba75958e40dc24fd59d1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a7d83f91c3becba75958e40dc24fd59d1">golHeight</a> = 0</td></tr>
+<tr class="separator:a7d83f91c3becba75958e40dc24fd59d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6a87c7e46ec09653aa1566362e39a2a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00046.html">Cell</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#ad6a87c7e46ec09653aa1566362e39a2a">golDead</a> = {0, 0.f, 0.f, 0.f}</td></tr>
 <tr class="separator:ad6a87c7e46ec09653aa1566362e39a2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b709ba8b274a608db03e40693cc4c76"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00046.html">Cell</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a0b709ba8b274a608db03e40693cc4c76">golSpeciesSources</a> [3]</td></tr>
@@ -142,7 +142,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00157">157</a> of file <a class="el" href="a00023_source.html">gol.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00165">165</a> of file <a class="el" href="a00023_source.html">gol.c</a>.</p>
 
 </div>
 </div>
@@ -179,12 +179,12 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00180">180</a> of file <a class="el" href="a00023_source.html">gol.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00188">188</a> of file <a class="el" href="a00023_source.html">gol.c</a>.</p>
 
 </div>
 </div>
-<a id="a29b5563998c07dbf9b1e14d56acac6d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29b5563998c07dbf9b1e14d56acac6d3">&#9670;&nbsp;</a></span>countNeighbors()</h2>
+<a id="ab4ccdb0600dbbbe6121e7ad97113cfe6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4ccdb0600dbbbe6121e7ad97113cfe6">&#9670;&nbsp;</a></span>countNeighbors()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -192,13 +192,13 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">unsigned int countNeighbors </td>
           <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>y</em>, </td>
         </tr>
         <tr>
@@ -215,12 +215,12 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00201">201</a> of file <a class="el" href="a00023_source.html">gol.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00209">209</a> of file <a class="el" href="a00023_source.html">gol.c</a>.</p>
 
 </div>
 </div>
-<a id="a78c35d9fc4f2f50dd00005959b31b21d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78c35d9fc4f2f50dd00005959b31b21d">&#9670;&nbsp;</a></span>golFetchCur()</h2>
+<a id="a56206fe6268fdd67437bd5b450e088b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56206fe6268fdd67437bd5b450e088b1">&#9670;&nbsp;</a></span>golFetchCur()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -228,13 +228,13 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="a00046.html">Cell</a>* golFetchCur </td>
           <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>y</em>&#160;</td>
         </tr>
         <tr>
@@ -245,12 +245,12 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00018">18</a> of file <a class="el" href="a00023_source.html">gol.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00022">22</a> of file <a class="el" href="a00023_source.html">gol.c</a>.</p>
 
 </div>
 </div>
-<a id="a8339dbc6961eff7869a1e861ac558ea2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8339dbc6961eff7869a1e861ac558ea2">&#9670;&nbsp;</a></span>golFetchNext()</h2>
+<a id="afac01d9c7076a5434b4f9a624223bdd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afac01d9c7076a5434b4f9a624223bdd2">&#9670;&nbsp;</a></span>golFetchNext()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -258,13 +258,13 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="a00046.html">Cell</a>* golFetchNext </td>
           <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>y</em>&#160;</td>
         </tr>
         <tr>
@@ -305,7 +305,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00157">157</a> of file <a class="el" href="a00023_source.html">gol.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00165">165</a> of file <a class="el" href="a00023_source.html">gol.c</a>.</p>
 
 </div>
 </div>
@@ -325,7 +325,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00145">145</a> of file <a class="el" href="a00023_source.html">gol.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00153">153</a> of file <a class="el" href="a00023_source.html">gol.c</a>.</p>
 
 </div>
 </div>
@@ -344,7 +344,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00218">218</a> of file <a class="el" href="a00023_source.html">gol.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00222">222</a> of file <a class="el" href="a00023_source.html">gol.c</a>.</p>
 
 </div>
 </div>
@@ -386,7 +386,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00020">20</a> of file <a class="el" href="a00023_source.html">gol.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00028">28</a> of file <a class="el" href="a00023_source.html">gol.c</a>.</p>
 
 </div>
 </div>
@@ -423,14 +423,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a0877b2ed38ac4e9152873926e06ba012"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0877b2ed38ac4e9152873926e06ba012">&#9670;&nbsp;</a></span>golHeight</h2>
+<a id="a7d83f91c3becba75958e40dc24fd59d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d83f91c3becba75958e40dc24fd59d1">&#9670;&nbsp;</a></span>golHeight</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int golHeight = 0</td>
+          <td class="memname">int golHeight = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -467,21 +467,21 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= {{1, 66.f / 255.f, 135.f / 255.f, 245.f / 255.f},</div>
-<div class="line">                                   {2, 41.f / 255.f, 230.f / 255.f, 66.f / 255.f},</div>
-<div class="line">                                   {3, 214.f / 255.f, 36.f / 255.f, 36.f / 255.f}}</div>
+<div class="line">                                   {1, 41.f / 255.f, 230.f / 255.f, 66.f / 255.f},</div>
+<div class="line">                                   {1, 214.f / 255.f, 36.f / 255.f, 36.f / 255.f}}</div>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="a00023_source.html#l00012">12</a> of file <a class="el" href="a00023_source.html">gol.c</a>.</p>
 
 </div>
 </div>
-<a id="a9da88196c74a55ea458d0bd487aef307"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9da88196c74a55ea458d0bd487aef307">&#9670;&nbsp;</a></span>golWidth</h2>
+<a id="ad7c03060eb11ec178b81eeeaaaa0e506"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7c03060eb11ec178b81eeeaaaa0e506">&#9670;&nbsp;</a></span>golWidth</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int golWidth = 0</td>
+          <td class="memname">int golWidth = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -494,7 +494,7 @@ Variables</h2></td></tr>
 <!-- HTML footer for doxygen 1.8.15-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 8 2024 02:16:47 for GoLCal by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 9 2024 02:45:16 for GoLCal by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.9.1
 </small></address>
